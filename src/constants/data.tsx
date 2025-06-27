@@ -1,6 +1,18 @@
+import { BiLogoTelegram, BiSolidTruck } from "react-icons/bi";
 import { CiDiscount1, CiDeliveryTruck } from "react-icons/ci";
 import { GoShieldCheck } from "react-icons/go";
-import { MdOutlineSupportAgent } from "react-icons/md";
+import {
+  MdOutlineCurrencyExchange,
+  MdOutlineSupportAgent,
+  MdPayment,
+} from "react-icons/md";
+import {
+  FaFacebookF,
+  FaGithub,
+  FaInstagram,
+  FaPinterestP,
+  FaTwitter,
+} from "react-icons/fa";
 
 export const promoBanner = [
   "/images/hero/one.png",
@@ -105,7 +117,11 @@ export const categoryData = [
   },
   {
     categoryImage: "/images/categories/mobiles-accessories.png",
-    categoryName: "Mobiles Accessories",
+    categoryName: "Mobile Accessories",
+  },
+  {
+    categoryImage: "/images/categories/gaming-console.png",
+    categoryName: "Gaming Consoles",
   },
 ];
 
@@ -116,4 +132,144 @@ export const flashDealsData = [
   { imageSrc: "/images/flashdeals/flashdeals.png" },
   { imageSrc: "/images/flashdeals/flashdeals-two.png" },
   { imageSrc: "/images/flashdeals/flashdeals-three.png" },
+];
+
+export const benefits = [
+  {
+    title: "Free Shipping",
+    icon: <BiLogoTelegram className="sm:text-[26px] text-lg" />,
+  },
+  {
+    title: "Guaranteed Refund",
+    icon: <MdOutlineCurrencyExchange className="sm:text-[26px] text-lg" />,
+  },
+  {
+    title: "Fast Delivery",
+    icon: <BiSolidTruck className="sm:text-[26px] text-lg" />,
+  },
+  {
+    title: "Flexible Payments",
+    icon: <MdPayment className="sm:text-[26px] text-lg" />,
+  },
+];
+
+export const discoveryProducts = [
+  {
+    image: "/images/discovery/fujifilm.png",
+    currentPrice: 159.6,
+    previousPrice: 194.0,
+    productName: "Fujifilm Instax mini 8",
+    totalSold: 1.2,
+    link: "",
+  },
+  {
+    image: "/images/discovery/menshirt.png",
+    currentPrice: 19.99,
+    previousPrice: 34.3,
+    productName: "Polo Shirt for Men",
+    totalSold: 7.8,
+    link: "",
+  },
+  {
+    image: "/images/discovery/bag.png",
+    currentPrice: 15.92,
+    previousPrice: 31.83,
+    productName: "Leather Backpack",
+    totalSold: 1.3,
+    link: "",
+  },
+  {
+    image: "/images/discovery/chair.png",
+    currentPrice: 59.9,
+    previousPrice: 75,
+    productName: "Pillow Grey Chair",
+    totalSold: 2.7,
+    link: "",
+  },
+  {
+    image: "/images/discovery/headphone.png",
+    currentPrice: 69.9,
+    previousPrice: 100.0,
+    productName: "Wireless Headphone",
+    totalSold: 22,
+    link: "",
+  },
+  {
+    image: "/images/discovery/dress.png",
+    currentPrice: 9.26,
+    previousPrice: 17.15,
+    productName: "Corset Mini Dress",
+    totalSold: 89,
+    link: "",
+  },
+  {
+    image: "/images/discovery/sandals.png",
+    currentPrice: 20.99,
+    previousPrice: 34.3,
+    productName: "Women's Heels",
+    totalSold: 1.5,
+    link: "",
+  },
+  {
+    image: "/images/discovery/plushtoy.png",
+    currentPrice: 11.82,
+    previousPrice: 21.44,
+    productName: "Plush Toy",
+    totalSold: 55,
+    link: "",
+  },
+  {
+    image: "/images/discovery/home-decor.png",
+    currentPrice: 14.58,
+    previousPrice: 27.73,
+    productName: "Artificial Flower",
+    totalSold: 18.6,
+  },
+  {
+    image: "/images/discovery/nike.png",
+    currentPrice: 84.98,
+    previousPrice: 104.98,
+    productName: "Men's Converse",
+    totalSold: 6.8,
+    link: "",
+  },
+];
+
+export const socialIcons = [
+  <FaTwitter />,
+  <FaPinterestP />,
+  <FaFacebookF />,
+  <FaInstagram />,
+  <FaGithub />,
+];
+export const downloadButton = [
+  {
+    image: "/icons/download-app-store.svg",
+    alt: "download-on-app-store",
+  },
+  {
+    image: "/icons/download-app-google-play.svg",
+    alt: "download-on-google-play",
+  },
+];
+
+export const footerData = [
+  {
+    header: "Company",
+    content: ["About", "Contact", "Sitemap", "Careers"],
+  },
+  {
+    header: "Help Center",
+    content: [
+      "Customer Service",
+      "Policy",
+      "Terms & Conditions",
+      "FAQs"
+    ],
+    width: "w-[125px]",
+  },
+  {
+    header: "Partner",
+    content: ["Become Seller", "Affiliate", "Advertise", "Partnership"],
+  },
 ];
