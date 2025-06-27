@@ -263,13 +263,12 @@ export const footerData = [
     content: [
       "Customer Service",
       "Policy",
-      "Terms & Conditions",
+      "Terms & Condition",
       "FAQs"
     ],
-    width: "w-[125px]",
   },
   {
     header: "Partner",
-    content: ["Become Seller", "Affiliate", "Advertise", "Partnership"],
+    content: ["Affiliate Program", "Become Seller", "Advertise", "Partnership"],
   },
 ];
