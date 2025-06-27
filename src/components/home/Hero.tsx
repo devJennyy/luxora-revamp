@@ -1,15 +1,108 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import { discountBannerOne, discountBannerTwo, featuredData, promoBanner } from "@/constants/data";
+
 const Hero = () => {
   return (
-    <div className="w-full flex flex-col gap-16">
-      <div className="w-full flex lg:flex-row flex-col gap-2">
-        <div className="flex lg:flex-col md:flex-row flex-col gap-2 lg:max-w-[390px] w-full max-w-full">
-          <div className="lg:h-full h-56 w-full bg-red-50 rounded-md"></div>
-          <div className="lg:h-full h-56 w-full bg-red-100 rounded-md"></div>
+    <div className="w-full flex flex-col sm:gap-16 gap-8">
+      <div className="w-full flex lg:flex-row flex-col-reverse gap-2">
+        <div className="flex lg:flex-col flex-row gap-2 xl:max-w-[390px] lg:max-w-[340px] w-full max-w-full">
+          <Swiper
+            spaceBetween={10}
+            slidesPerView={1}
+            loop={true}
+            modules={[Autoplay]}
+            autoplay={{
+              delay: 2300,
+              disableOnInteraction: false,
+              waitForTransition: true,
+            }}
+            speed={1000}
+            className="lg:h-full md:h-36 sm:h-32 h-16 w-full rounded-md overflow-hidden"
+          >
+            {discountBannerOne.map((src, index) => (
+              <SwiperSlide key={index}>
+                <img
+                  src={src}
+                  alt={`Hero ${index + 1}`}
+                  className="w-full h-full object-cover rounded-md"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <Swiper
+            spaceBetween={10}
+            slidesPerView={1}
+            loop={true}
+            modules={[Autoplay]}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+              waitForTransition: true,
+            }}
+            speed={1000}
+            className="lg:h-full md:h-36 sm:h-32 h-16 w-full rounded-md overflow-hidden"
+          >
+            {discountBannerTwo.map((src, index) => (
+              <SwiperSlide key={index}>
+                <img
+                  src={src}
+                  alt={`Hero ${index + 1}`}
+                  className="w-full h-full object-cover rounded-md"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
-        <div className="w-full lg:h-80 h-56 bg-red-200 rounded-md"></div>
+
+        <Swiper
+          spaceBetween={10}
+          slidesPerView={1}
+          loop={true}
+          modules={[Autoplay]}
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false,
+            waitForTransition: true,
+          }}
+          speed={1000}
+          className="w-full lg:h-80 sm:h-64 h-32 rounded-md overflow-hidden"
+        >
+          {promoBanner.map((src, index) => (
+            <SwiperSlide key={index}>
+              <img
+                src={src}
+                alt={`Hero ${index + 1}`}
+                className="w-full h-full object-cover rounded-md"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
 
-      <div className="w-full h-32 border rounded-md bg-red-100"></div>
+      <div className="w-full xl:h-32 md:h-36 sm:h-32 h-16 border sm:border-muted/30 border-muted/20 rounded-md lg:px-3">
+        <div className="grid grid-cols-4 justify-between items-center w-full h-full">
+          {featuredData?.map((featuredData, index) => (
+            <div
+              key={index}
+              className="flex justify-center items-center gap-3 w-full h-full"
+            >
+              <div className="xl:block hidden">
+                {featuredData.icon}
+              </div>
+              <div className="flex flex-col justify-center xl:items-start items-center gap-[1px]">
+               <div className={`xl:hidden ${featuredData.customClass}`}>
+                 {featuredData.icon}
+               </div>
+                <p className={`${featuredData.customClass} lg:text-base md:text-sm sm:text-[12px] text-[7px] font-medium xl:!mt-0 sm:!mt-2 !mt-1`}>{featuredData.title}</p>
+                <p className="lg:text-[12px] md:text-[10px] sm:text-[9px] font-normal text-muted hidden sm:block">
+                  {featuredData.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

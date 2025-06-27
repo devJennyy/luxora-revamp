@@ -135,7 +135,7 @@ const Header = () => {
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
             placeholder="Sign up and get 100% off your first order"
-            className="placeholder:text-muted text-primary w-full h-full xl:text-sm text-[13px] font-normal !pl-4 !pr-10 outline-none focus:shadow-sm focus-visible:ring-1 ring-stone-100 md:placeholder:opacity-100 placeholder:opacity-0 bg-transparent"
+            className="placeholder:text-muted text-primary w-full h-full xl:text-sm text-[13px] font-normal !pl-4 !pr-10 outline-none focus:shadow-sm focus-visible:ring-1 ring-stone-100 sm:placeholder:opacity-100 placeholder:opacity-0 bg-transparent"
           />
 
           {/* Smooth marquee fade in/out */}
@@ -146,7 +146,7 @@ const Header = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
-                className="absolute left-2 top-1/2 -translate-y-1/2 w-[calc(105%-4rem)] overflow-hidden pointer-events-none md:hidden"
+                className="absolute left-2 top-1/2 -translate-y-1/2 w-[calc(105%-4rem)] overflow-hidden pointer-events-none sm:hidden"
               >
                 <motion.div
                   className="text-muted text-[13px] xl:text-sm font-normal whitespace-nowrap"
@@ -219,12 +219,12 @@ const Header = () => {
                 </Button>
               </PopoverTrigger>
 
-              <PopoverContent className="!mt-2 lg:w-80 sm:w-72 w-54 xl:h-80 lg:h-64 sm:h-56 2xl:!mr-16 xl:!mr-10 !mr-5">
-                <div className="flex flex-col justify-center items-center py-4">
+              <PopoverContent className="!mt-2 lg:w-80 md:w-64 sm:w-60 w-54 xl:h-80 lg:h-64 sm:h-56 2xl:!mr-16 xl:!mr-10 !mr-5">
+                <div className="flex flex-col justify-end items-center gap-5">
                   <div className="xl:w-48 xl:h-48 lg:w-32 lg:h-32 sm:w-28 sm:h-28 w-20 h-20">
                     <img
                       src="/icons/cart-two.svg"
-                      className="w-fit h-fit object-cover ml-[10px] gap-5"
+                      className="w-full h-full object-contain ml-[10px] gap-5"
                     />
                   </div>
                   <div className="flex flex-col justify-center items-center gap-1">
@@ -284,12 +284,12 @@ const Header = () => {
                 </Button>
               </PopoverTrigger>
 
-              <PopoverContent className="!mt-2 lg:w-80 sm:w-72 w-54 xl:h-80 lg:h-64 sm:h-56 2xl:!mr-40 xl:!mr-10 !mr-5">
-                <div className="flex flex-col justify-center items-center py-2 gap-5">
+              <PopoverContent className="!mt-2 lg:w-80 md:w-64 sm:w-60 w-54 xl:h-80 lg:h-64 sm:h-56 2xl:!mr-40 xl:!mr-10 !mr-5">
+                <div className="flex flex-col justify-center items-center gap-5">
                   <div className="xl:w-48 xl:h-48 lg:w-32 lg:h-32 sm:w-28 sm:h-28 w-20 h-20">
                     <img
                       src="/icons/favourite-two.svg"
-                      className="w-fit h-fit object-cover"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <div className="flex flex-col justify-center items-center gap-1">
