@@ -18,7 +18,7 @@ const Hero = () => {
             loop={true}
             modules={[Autoplay]}
             autoplay={{
-              delay: 2300,
+              delay: 2500,
               disableOnInteraction: false,
               waitForTransition: true,
             }}
@@ -85,7 +85,7 @@ const Hero = () => {
         </Swiper>
       </div>
 
-      <div className="w-full xl:h-32 md:h-36 sm:h-32 h-16 border sm:border-muted/30 border-muted/20 rounded-md lg:px-3">
+      <div className="w-full xl:h-32 md:h-36 sm:h-32 h-16 border sm:border-muted/30 border-muted/20 rounded-md lg:px-3 px-1">
         <div className="grid grid-cols-4 justify-between items-center w-full h-full">
           {featuredData?.map((item, index) => (
             <div
@@ -98,11 +98,11 @@ const Hero = () => {
                   {item.icon}
                 </div>
                 <p
-                  className={`${item.customClass} lg:text-base md:text-sm sm:text-[12px] text-[7px] font-medium xl:!mt-0 sm:!mt-2 !mt-1`}
+                  className={`${item.customClass} lg:text-base md:text-sm sm:text-[12px] text-[7.5px] font-medium xl:!mt-0 sm:!mt-2 !mt-1`}
                 >
                   {item.title}
                 </p>
-                <p className="lg:text-[12px] md:text-[10px] sm:text-[9px] text-[5px] font-normal text-muted">
+                <p className="lg:text-[12px] md:text-[10px] sm:text-[9px] text-[5.5px] font-normal text-muted">
                   {item.description}
                 </p>
               </div>

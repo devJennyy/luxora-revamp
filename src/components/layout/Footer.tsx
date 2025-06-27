@@ -9,15 +9,15 @@ import type { ReactNode } from "react";
 const Footer = () => {
   const ParagraphComponent = ({ children }: { children: ReactNode }) => {
     return (
-      <p className="text-primary/60 hover:text-primary dark:text-white/60 hover:dark:text-white cursor-pointer hover:transition-all">
+      <p className="text-primary/60 hover:text-primary active:text-primary focus:text-primary  dark:text-white/60 cursor-pointer transition-all">
         {children}
       </p>
     );
   };
   return (
     <div className="w-full">
-      <div className="w-full max-w-[1280px] !mx-auto xl:px-10 sm:px-5 px-4 flex flex-col sm:gap-20 gap-16">
-        <div className="w-full xl:h-32 md:h-36 sm:h-32 h-16 border sm:border-muted/30 border-muted/20 rounded-md lg:px-3">
+      <div className="w-full max-w-[1280px] !mx-auto xl:px-10 sm:px-5 px-4 flex flex-col sm:gap-20 gap-12">
+        <div className="w-full xl:h-32 md:h-36 sm:h-32 h-16 border sm:border-muted/30 border-muted/20 rounded-md lg:px-3 px-1">
           <div className="grid grid-cols-4 justify-between items-center w-full h-full">
             {benefits?.map((item, index) => {
               return (
@@ -26,7 +26,7 @@ const Footer = () => {
                   className="flex flex-col justify-center items-center sm:gap-4 gap-2 transition-all"
                 >
                   {item.icon}
-                  <p className="md:text-base sm:text-sm text-[7px]">
+                  <p className="md:text-base sm:text-sm text-[8px]">
                     {item.title}
                   </p>
                 </div>
@@ -63,12 +63,12 @@ const Footer = () => {
               </p>
             </p>
 
-            <div className="grid grid-cols-5 !mt-3 xl:gap-0 lg:gap-4 w-full max-w-[250px] ">
+            <div className="grid grid-cols-5 !mt-3 lg:gap-4 w-full max-w-[250px] ">
               {socialIcons?.map((icon, index) => {
                 return (
                   <div
                     key={index}
-                    className="flex justify-center items-center bg-muted/10 xl:w-[46px] xl:h-[46px] lg:w-[40px] w-[40px] h-[40px] lg:rounded-xl md:rounded-lg rounded-lg text-primary cursor-pointer"
+                    className="flex justify-center items-center hover:bg-gradient-to-b from-primary to-primary/30 focus:bg-gradient-to-b active:bg-gradient-to-b hover:text-white active:text-white focus:text-white transition-slow bg-muted/10 xl:w-[46px] xl:h-[46px] lg:w-[40px] w-[40px] h-[40px] lg:rounded-xl md:rounded-lg rounded-lg text-primary cursor-pointer"
                   >
                     {icon}
                   </div>
@@ -80,7 +80,7 @@ const Footer = () => {
           <div className="sm:grid sm:grid-cols-4 flex w-full gap-6">
             {footerData?.map((data, index) => (
               <div key={index} className="flex flex-col h-full text-left gap-4">
-                <p className="font-semibold sm:text-lg sm:mb-1">
+                <p className="font-semibold sm:text-lg text-sm sm:mb-1">
                   {data.header}
                 </p>
                 <div className="flex flex-col xl:gap-4 gap-3 sm:text-sm text-[12px]">
