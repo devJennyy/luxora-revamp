@@ -95,7 +95,7 @@ const Hero = () => {
                  {featuredData.icon}
                </div>
                 <p className={`${featuredData.customClass} lg:text-base md:text-sm sm:text-[12px] text-[7px] font-medium xl:!mt-0 sm:!mt-2 !mt-1`}>{featuredData.title}</p>
-                <p className="lg:text-[12px] md:text-[10px] sm:text-[9px] font-normal text-muted hidden sm:block">
+                <p className="lg:text-[12px] md:text-[10px] sm:text-[9px] text-[5px] font-normal text-muted">
                   {featuredData.description}
                 </p>
               </div>

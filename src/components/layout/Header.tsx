@@ -25,16 +25,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 const Header = () => {
   const location = useLocation();
   const isHome = location.pathname === "/homepage";
-  const [value, setValue] = useState("");
-  const [isFocused, setIsFocused] = useState(false);
-  const hideMarquee = isFocused || value !== "";
 
   return (
     <div className="w-full text-white">
@@ -128,47 +123,18 @@ const Header = () => {
         </div>
 
         {/* Search Bar */}
-        <div className="flex justify-end items-center w-full md:max-w-[25rem] transition-slow md:h-11 h-10 !md:mr-0 !mr-3 relative overflow-hidden rounded-md border bg-white">
+        <div className="flex justify-end items-center w-full md:max-w-[25rem] transition-slow md:h-11 sm:h-10 h-9 !md:mr-0 !mr-3 relative">
           <input
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
             placeholder="Sign up and get 100% off your first order"
-            className="placeholder:text-muted text-primary w-full h-full xl:text-sm text-[13px] font-normal !pl-4 !pr-10 outline-none focus:shadow-sm focus-visible:ring-1 ring-stone-100 sm:placeholder:opacity-100 placeholder:opacity-0 bg-transparent"
+            className="hidden sm:block placeholder:text-muted text-primary w-full h-full xl:text-sm text-[13px] font-normal border rounded-md !pl-4 !pr-10 outline-none focus:shadow-sm focus-visible:ring-1 ring-stone-100"
           />
-
-          {/* Smooth marquee fade in/out */}
-          <AnimatePresence>
-            {!hideMarquee && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="absolute left-2 top-1/2 -translate-y-1/2 w-[calc(105%-4rem)] overflow-hidden pointer-events-none sm:hidden"
-              >
-                <motion.div
-                  className="text-muted text-[13px] xl:text-sm font-normal whitespace-nowrap"
-                  animate={{ x: ["70%", "-200%"] }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 7,
-                    ease: "linear",
-                  }}
-                >
-                  <span className="inline-block !pl-12 !pr-32 min-w-max">
-                    Sign up and get 100% off your first order
-                  </span>
-                </motion.div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* Search Icon */}
+          <input
+            placeholder="Search..."
+            className="sm:hidden placeholder:text-muted text-primary w-full h-full xl:text-sm text-[13px] font-normal border rounded-md !pl-4 !pr-10 outline-none focus:shadow-sm focus-visible:ring-1 ring-stone-100"
+          />
           <LuSearch
             size={20}
-            className="absolute right-3 text-muted cursor-pointer"
+            className="absolute !mr-4 text-muted cursor-pointer"
           />
         </div>
 
@@ -308,7 +274,7 @@ const Header = () => {
             <DropdownMenuTrigger asChild>
               <Button
                 variant="link"
-                className="flex justify-center items-center md:w-11 md:h-11 sm:w-10 sm:h-10 w-9 h-9 border bg-primary rounded-md !p-[10px] cursor-pointer"
+                className="flex justify-center items-center md:w-11 md:h-11 sm:w-10 sm:h-10 w-9 h-9 border border-primary bg-primary rounded-md !p-[10px] cursor-pointer"
               >
                 <img
                   src="/icons/user.svg"
