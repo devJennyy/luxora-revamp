@@ -25,10 +25,16 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 const Header = () => {
   const location = useLocation();
   const isHome = location.pathname === "/homepage";
+  const [value, setValue] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
+  const hideMarquee = isFocused || value !== "";
 
   return (
     <div className="w-full text-white">
@@ -59,11 +65,26 @@ const Header = () => {
                 </div>
                 <MdKeyboardArrowDown size={16} className="sm:block hidden" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="!mt-1">
                 <SelectGroup>
-                  <SelectItem value="english">English</SelectItem>
-                  <SelectItem value="filipino">Filipino</SelectItem>
-                  <SelectItem value="japanese">Japanese</SelectItem>
+                  <SelectItem
+                    value="english"
+                    className="sm:text-sm text-[12px]"
+                  >
+                    English
+                  </SelectItem>
+                  <SelectItem
+                    value="filipino"
+                    className="sm:text-sm text-[12px]"
+                  >
+                    Filipino
+                  </SelectItem>
+                  <SelectItem
+                    value="japanese"
+                    className="sm:text-sm text-[12px]"
+                  >
+                    Japanese
+                  </SelectItem>
                 </SelectGroup>
               </SelectContent>
             </Select>
@@ -88,7 +109,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="h-8 md:hidden !mt-5">
         <img
           src="/logo/logo-black.svg"
@@ -96,7 +117,7 @@ const Header = () => {
           className="w-full h-full object-contain"
         />
       </div>
-      
+
       <div className="border-b w-full sm:h-24 h-20 max-w-[1280px] !mx-auto flex justify-between items-center xl:px-10 sm:px-5 p-4">
         <div className="w-full md:max-w-56 md:flex justify-start hidden">
           <img
@@ -106,14 +127,48 @@ const Header = () => {
           />
         </div>
 
-        <div className="flex justify-end items-center w-full md:max-w-[25rem] transition-slow md:h-11 h-10 !md:mr-0 !mr-3 relative">
+        {/* Search Bar */}
+        <div className="flex justify-end items-center w-full md:max-w-[25rem] transition-slow md:h-11 h-10 !md:mr-0 !mr-3 relative overflow-hidden rounded-md border bg-white">
           <input
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
             placeholder="Sign up and get 100% off your first order"
-            className="placeholder:text-muted text-primary w-full h-full xl:text-sm text-[13px] font-normal border rounded-md !pl-4 !pr-10 outline-none focus:shadow-sm focus-visible:ring-1 ring-stone-100"
+            className="placeholder:text-muted text-primary w-full h-full xl:text-sm text-[13px] font-normal !pl-4 !pr-10 outline-none focus:shadow-sm focus-visible:ring-1 ring-stone-100 md:placeholder:opacity-100 placeholder:opacity-0 bg-transparent"
           />
+
+          {/* Smooth marquee fade in/out */}
+          <AnimatePresence>
+            {!hideMarquee && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="absolute left-2 top-1/2 -translate-y-1/2 w-[calc(105%-4rem)] overflow-hidden pointer-events-none md:hidden"
+              >
+                <motion.div
+                  className="text-muted text-[13px] xl:text-sm font-normal whitespace-nowrap"
+                  animate={{ x: ["70%", "-200%"] }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 7,
+                    ease: "linear",
+                  }}
+                >
+                  <span className="inline-block !pl-12 !pr-32 min-w-max">
+                    Sign up and get 100% off your first order
+                  </span>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Search Icon */}
           <LuSearch
             size={20}
-            className="absolute !mr-4 text-muted cursor-pointer"
+            className="absolute right-3 text-muted cursor-pointer"
           />
         </div>
 
@@ -123,7 +178,7 @@ const Header = () => {
             <HoverCardTrigger asChild>
               <Button
                 variant="link"
-                className="flex justify-center items-center md:w-11 md:h-11 sm:w-10 sm:h-10 w-9 h-9 border rounded-md !p-[10px] cursor-pointer"
+                className="hidden xl:flex justify-center items-center md:w-11 md:h-11 sm:w-10 sm:h-10 w-9 h-9 border rounded-md !p-[10px] cursor-pointer"
               >
                 <img
                   src="/icons/cart.svg"
@@ -150,12 +205,45 @@ const Header = () => {
             </HoverCardContent>
           </HoverCard>
 
+          <div className="xl:hidden">
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="link"
+                  className="flex justify-center items-center md:w-11 md:h-11 sm:w-10 sm:h-10 w-9 h-9 border rounded-md !p-[10px] cursor-pointer"
+                >
+                  <img
+                    src="/icons/cart.svg"
+                    className="object-contain w-full h-full"
+                  />
+                </Button>
+              </PopoverTrigger>
+
+              <PopoverContent className="!mt-2 lg:w-80 sm:w-72 w-54 xl:h-80 lg:h-64 sm:h-56 2xl:!mr-16 xl:!mr-10 !mr-5">
+                <div className="flex flex-col justify-center items-center py-4">
+                  <div className="xl:w-48 xl:h-48 lg:w-32 lg:h-32 sm:w-28 sm:h-28 w-20 h-20">
+                    <img
+                      src="/icons/cart-two.svg"
+                      className="w-fit h-fit object-cover ml-[10px] gap-5"
+                    />
+                  </div>
+                  <div className="flex flex-col justify-center items-center gap-1">
+                    <p className="lg:text-base text-sm font-bold">No Orders</p>
+                    <p className="lg:text-sm sm:text-[12px] text-[10px] text-gray-darkGray/90">
+                      You haven't made any orders yet.
+                    </p>
+                  </div>
+                </div>
+              </PopoverContent>
+            </Popover>
+          </div>
+
           {/* Favourites */}
           <HoverCard openDelay={20} closeDelay={10}>
             <HoverCardTrigger asChild>
               <Button
                 variant="link"
-                className="flex justify-center items-center md:w-11 md:h-11 sm:w-10 sm:h-10 w-9 h-9 border rounded-md !p-[10px] cursor-pointer"
+                className="hidden xl:flex justify-center items-center md:w-11 md:h-11 sm:w-10 sm:h-10 w-9 h-9 border rounded-md !p-[10px] cursor-pointer"
               >
                 <img
                   src="/icons/favourite.svg"
@@ -181,6 +269,39 @@ const Header = () => {
               </div>
             </HoverCardContent>
           </HoverCard>
+
+          <div className="xl:hidden">
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="link"
+                  className="flex justify-center items-center md:w-11 md:h-11 sm:w-10 sm:h-10 w-9 h-9 border rounded-md !p-[10px] cursor-pointer"
+                >
+                  <img
+                    src="/icons/favourite.svg"
+                    className="object-contain w-full h-full"
+                  />
+                </Button>
+              </PopoverTrigger>
+
+              <PopoverContent className="!mt-2 lg:w-80 sm:w-72 w-54 xl:h-80 lg:h-64 sm:h-56 2xl:!mr-40 xl:!mr-10 !mr-5">
+                <div className="flex flex-col justify-center items-center py-2 gap-5">
+                  <div className="xl:w-48 xl:h-48 lg:w-32 lg:h-32 sm:w-28 sm:h-28 w-20 h-20">
+                    <img
+                      src="/icons/favourite-two.svg"
+                      className="w-fit h-fit object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-col justify-center items-center gap-1">
+                    <p className="lg:text-base text-sm font-bold">No Orders</p>
+                    <p className="lg:text-sm sm:text-[12px] text-[10px] text-gray-darkGray/90">
+                      You haven't made any orders yet.
+                    </p>
+                  </div>
+                </div>
+              </PopoverContent>
+            </Popover>
+          </div>
 
           {/* User Profile */}
           <DropdownMenu>
