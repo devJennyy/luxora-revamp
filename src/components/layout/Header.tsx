@@ -41,19 +41,19 @@ const Header = () => {
               <p>Free shipping on all orders over $22</p>
             </div>
           ) : (
-            <div className="h-6">
+            <Link to={"/homepage"} className="h-6">
               <img
                 src="/logo/logo-white.svg"
                 alt="Luxora Logo"
                 className="w-full h-full object-contain"
               />
-            </div>
+            </Link>
           )}
 
           <div className="flex items-center xl:gap-7 gap-3 transition-slow">
             {/* Language */}
             <Select>
-              <SelectTrigger className="flex flex-row justify-center items-center gap-2 outline-none">
+              <SelectTrigger className="flex justify-center items-center gap-2 outline-none">
                 <IoMdGlobe size={16} />
                 <div className="xl:text-sm text-[12px] font-light sm:block hidden">
                   <SelectValue placeholder="English" />
@@ -87,7 +87,7 @@ const Header = () => {
             {/* Faqs */}
             <Link
               to={"/faqs"}
-              className="flex flex-row justify-center items-center gap-2"
+              className="flex justify-center items-center gap-2"
             >
               <LuMessagesSquare size={16} />
               <p className="sm:block hidden">Faqs</p>
@@ -96,7 +96,7 @@ const Header = () => {
             {/* Help Center */}
             <Link
               to={"/help-center"}
-              className="flex flex-row justify-center items-center gap-2"
+              className="flex justify-center items-center gap-2"
             >
               <BiSolidHelpCircle size={16} />
               <p className="sm:block hidden">Help Center</p>
@@ -186,15 +186,15 @@ const Header = () => {
               </PopoverTrigger>
 
               <PopoverContent className="!mt-2 lg:w-80 md:w-64 sm:w-60 w-54 xl:h-80 lg:h-64 sm:h-56 2xl:!mr-16 xl:!mr-10 !mr-5">
-                <div className="flex flex-col justify-end items-center gap-5">
+                <div className="flex flex-col justify-end items-center sm:gap-5 gap-3">
                   <div className="xl:w-48 xl:h-48 lg:w-32 lg:h-32 sm:w-28 sm:h-28 w-20 h-20">
                     <img
                       src="/icons/cart-two.svg"
                       className="w-full h-full object-contain ml-[10px] gap-5"
                     />
                   </div>
-                  <div className="flex flex-col justify-center items-center gap-1">
-                    <p className="lg:text-base text-sm font-bold">No Orders</p>
+                  <div className="flex flex-col justify-center items-center gap-1 !mb-1">
+                    <p className="lg:text-base text-sm sm:font-bold font-semibold">No Orders</p>
                     <p className="lg:text-sm sm:text-[12px] text-[10px] text-gray-darkGray/90">
                       You haven't made any orders yet.
                     </p>
@@ -251,15 +251,15 @@ const Header = () => {
               </PopoverTrigger>
 
               <PopoverContent className="!mt-2 lg:w-80 md:w-64 sm:w-60 w-54 xl:h-80 lg:h-64 sm:h-56 2xl:!mr-40 xl:!mr-10 !mr-5">
-                <div className="flex flex-col justify-center items-center gap-5">
+                <div className="flex flex-col justify-center items-center sm:gap-5 gap-3">
                   <div className="xl:w-48 xl:h-48 lg:w-32 lg:h-32 sm:w-28 sm:h-28 w-20 h-20">
                     <img
                       src="/icons/favourite-two.svg"
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <div className="flex flex-col justify-center items-center gap-1">
-                    <p className="lg:text-base text-sm font-bold">No Orders</p>
+                  <div className="flex flex-col justify-center items-center gap-1 !mb-1">
+                    <p className="lg:text-base text-sm sm:font-bold font-semi-bold">No Orders</p>
                     <p className="lg:text-sm sm:text-[12px] text-[10px] text-gray-darkGray/90">
                       You haven't made any orders yet.
                     </p>

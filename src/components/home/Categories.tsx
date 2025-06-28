@@ -10,7 +10,7 @@ const Categories = () => {
         {categoryData?.map((item, index) => {
           return (
             <div className={`flex flex-col items-center gap-5 ${index === 14 ? 'xl:hidden' : ''}`}>
-              <div key={index} className="rounded-full bg-primary-muted aspect-square w-full max-w-32 flex justify-center items-center">
+              <div key={index} className="w-full max-w-32 flex justify-center items-center transition-default cursor-pointer hover:border active:border focus:border border-muted/20 rounded-full bg-primary-muted aspect-square">
               <img
                 src={item.categoryImage}
                 alt={item.categoryName}

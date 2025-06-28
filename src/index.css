@@ -7,6 +7,8 @@
 
 @theme {
   --color-primary: #030812;
+  --color-secondary: #666666;
+  --color-primary-muted: #F5F5F5;
   --color-primary-muted: #F5F5F5;
   --color-muted: #9A9CAA;
   --color-white: #FFFFFF;
@@ -116,7 +118,7 @@ html > body[data-scroll-locked] {
   --popover-foreground: oklch(0.145 0 0);
   --primary: #030812;
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
+  --secondary: #666666;
   --secondary-foreground: oklch(0.205 0 0);
   --muted: #9A9CAA;
   --muted-foreground: oklch(0.556 0 0);
