@@ -105,194 +105,208 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="h-8 md:hidden !mt-5">
-        <img
-          src="/logo/logo-black.svg"
-          alt="Luxora logo"
-          className="w-full h-full object-contain"
-        />
-      </div>
-
-      <div className="border-b w-full sm:h-24 h-20 max-w-[1280px] !mx-auto flex justify-between items-center xl:px-10 sm:px-5 p-4">
-        <div className="w-full md:max-w-56 md:flex justify-start hidden">
-          <img
-            src="/logo/logo-black.svg"
-            alt="Luxora logo"
-            className="w-fit xl:h-9 md:h-8 h-7 object-contain"
-          />
-        </div>
-
-        {/* Search Bar */}
-        <div className="flex justify-end items-center w-full md:max-w-[25rem] transition-slow md:h-11 sm:h-10 h-9 !md:mr-0 !mr-3 relative">
-          <input
-            placeholder="Sign up and get 100% off your first order"
-            className="hidden sm:block placeholder:text-muted text-primary w-full h-full xl:text-sm text-[13px] font-normal border rounded-md !pl-4 !pr-10 outline-none focus:shadow-sm focus-visible:ring-1 ring-stone-100"
-          />
-          <input
-            placeholder="Search..."
-            className="sm:hidden placeholder:text-muted text-primary w-full h-full xl:text-sm text-[13px] font-normal border rounded-md !pl-4 !pr-10 outline-none focus:shadow-sm focus-visible:ring-1 ring-stone-100"
-          />
-          <LuSearch
-            size={20}
-            className="absolute !mr-4 text-muted cursor-pointer"
-          />
-        </div>
-
-        {/* Cart */}
-        <div className="md:w-full md:max-w-48 flex justify-end items-center sm:gap-2 gap-[5px]">
-          <HoverCard openDelay={20} closeDelay={10}>
-            <HoverCardTrigger asChild>
-              <Button
-                variant="link"
-                className="hidden xl:flex justify-center items-center md:w-11 md:h-11 sm:w-10 sm:h-10 w-9 h-9 border rounded-md !p-[10px] cursor-pointer"
-              >
-                <img
-                  src="/icons/cart.svg"
-                  className="object-contain w-full h-full"
-                />
-              </Button>
-            </HoverCardTrigger>
-
-            <HoverCardContent className="lg:w-80 w-72 xl:h-80 lg:h-64 h-56 2xl:!mr-16 xl:!mr-10 !mr-5">
-              <div className="flex flex-col justify-center items-center py-4">
-                <div className="xl:w-48 xl:h-48 lg:w-32 lg:h-32 w-28 h-28">
-                  <img
-                    src="/icons/cart-two.svg"
-                    className="w-fit h-fit object-cover ml-[10px] gap-5"
-                  />
-                </div>
-                <div className="flex flex-col justify-center items-center gap-1">
-                  <p className="lg:text-base text-sm font-bold">No Orders</p>
-                  <p className="lg:text-sm text-[12px] text-gray-darkGray/90">
-                    You haven't made any orders yet.
-                  </p>
-                </div>
-              </div>
-            </HoverCardContent>
-          </HoverCard>
-
-          <div className="xl:hidden">
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="link"
-                  className="flex justify-center items-center md:w-11 md:h-11 sm:w-10 sm:h-10 w-9 h-9 border rounded-md !p-[10px] cursor-pointer"
-                >
-                  <img
-                    src="/icons/cart.svg"
-                    className="object-contain w-full h-full"
-                  />
-                </Button>
-              </PopoverTrigger>
-
-              <PopoverContent className="!mt-2 lg:w-80 md:w-64 sm:w-60 w-54 xl:h-80 lg:h-64 sm:h-56 2xl:!mr-16 xl:!mr-10 !mr-5">
-                <div className="flex flex-col justify-end items-center sm:gap-5 gap-3">
-                  <div className="xl:w-48 xl:h-48 lg:w-32 lg:h-32 sm:w-28 sm:h-28 w-20 h-20">
-                    <img
-                      src="/icons/cart-two.svg"
-                      className="w-full h-full object-contain ml-[10px] gap-5"
-                    />
-                  </div>
-                  <div className="flex flex-col justify-center items-center gap-1 !mb-1">
-                    <p className="lg:text-base text-sm sm:font-bold font-semibold">No Orders</p>
-                    <p className="lg:text-sm sm:text-[12px] text-[10px] text-gray-darkGray/90">
-                      You haven't made any orders yet.
-                    </p>
-                  </div>
-                </div>
-              </PopoverContent>
-            </Popover>
+      {isHome ? (
+        <>
+          <div className="h-8 md:hidden !mt-5">
+            <img
+              src="/logo/logo-black.svg"
+              alt="Luxora logo"
+              className="w-full h-full object-contain"
+            />
           </div>
 
-          {/* Favourites */}
-          <HoverCard openDelay={20} closeDelay={10}>
-            <HoverCardTrigger asChild>
-              <Button
-                variant="link"
-                className="hidden xl:flex justify-center items-center md:w-11 md:h-11 sm:w-10 sm:h-10 w-9 h-9 border rounded-md !p-[10px] cursor-pointer"
-              >
-                <img
-                  src="/icons/favourite.svg"
-                  className="object-contain w-full h-full"
-                />
-              </Button>
-            </HoverCardTrigger>
+          <div className="border-b w-full sm:h-24 h-20 max-w-[1280px] !mx-auto flex justify-between items-center xl:px-10 sm:px-5 p-4">
+            <div className="w-full md:max-w-56 md:flex justify-start hidden">
+              <img
+                src="/logo/logo-black.svg"
+                alt="Luxora logo"
+                className="w-fit xl:h-9 md:h-8 h-7 object-contain"
+              />
+            </div>
 
-            <HoverCardContent className="lg:w-80 w-72 xl:h-80 lg:h-64 h-56 2xl:!mr-40 xl:!mr-10 !mr-5">
-              <div className="flex flex-col justify-center items-center py-2 gap-5">
-                <div className="xl:w-48 xl:h-48 lg:w-32 lg:h-32 w-28 h-28">
-                  <img
-                    src="/icons/favourite-two.svg"
-                    className="w-fit h-fit object-cover"
-                  />
-                </div>
-                <div className="flex flex-col justify-center items-center gap-1">
-                  <p className="lg:text-base text-sm font-bold">No Orders</p>
-                  <p className="lg:text-sm text-[12px] text-gray-darkGray/90">
-                    You haven't made any orders yet.
-                  </p>
-                </div>
-              </div>
-            </HoverCardContent>
-          </HoverCard>
+            {/* Search Bar */}
+            <div className="flex justify-end items-center w-full md:max-w-[25rem] transition-slow md:h-11 sm:h-10 h-9 !md:mr-0 !mr-3 relative">
+              <input
+                placeholder="Sign up and get 100% off your first order"
+                className="hidden sm:block placeholder:text-muted text-primary w-full h-full xl:text-sm text-[13px] font-normal border rounded-md !pl-4 !pr-10 outline-none focus:shadow-sm focus-visible:ring-1 ring-stone-100"
+              />
+              <input
+                placeholder="Search..."
+                className="sm:hidden placeholder:text-muted text-primary w-full h-full xl:text-sm text-[13px] font-normal border rounded-md !pl-4 !pr-10 outline-none focus:shadow-sm focus-visible:ring-1 ring-stone-100"
+              />
+              <LuSearch
+                size={20}
+                className="absolute !mr-4 text-muted cursor-pointer"
+              />
+            </div>
 
-          <div className="xl:hidden">
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="link"
-                  className="flex justify-center items-center md:w-11 md:h-11 sm:w-10 sm:h-10 w-9 h-9 border rounded-md !p-[10px] cursor-pointer"
-                >
-                  <img
-                    src="/icons/favourite.svg"
-                    className="object-contain w-full h-full"
-                  />
-                </Button>
-              </PopoverTrigger>
-
-              <PopoverContent className="!mt-2 lg:w-80 md:w-64 sm:w-60 w-54 xl:h-80 lg:h-64 sm:h-56 2xl:!mr-40 xl:!mr-10 !mr-5">
-                <div className="flex flex-col justify-center items-center sm:gap-5 gap-3">
-                  <div className="xl:w-48 xl:h-48 lg:w-32 lg:h-32 sm:w-28 sm:h-28 w-20 h-20">
+            {/* Cart */}
+            <div className="md:w-full md:max-w-48 flex justify-end items-center sm:gap-2 gap-[5px]">
+              <HoverCard openDelay={20} closeDelay={10}>
+                <HoverCardTrigger asChild>
+                  <Button
+                    variant="link"
+                    className="hidden xl:flex justify-center items-center md:w-11 md:h-11 sm:w-10 sm:h-10 w-9 h-9 border rounded-md !p-[10px] cursor-pointer"
+                  >
                     <img
-                      src="/icons/favourite-two.svg"
-                      className="w-full h-full object-contain"
+                      src="/icons/cart.svg"
+                      className="object-contain w-full h-full"
                     />
-                  </div>
-                  <div className="flex flex-col justify-center items-center gap-1 !mb-1">
-                    <p className="lg:text-base text-sm sm:font-bold font-semi-bold">No Orders</p>
-                    <p className="lg:text-sm sm:text-[12px] text-[10px] text-gray-darkGray/90">
-                      You haven't made any orders yet.
-                    </p>
-                  </div>
-                </div>
-              </PopoverContent>
-            </Popover>
-          </div>
+                  </Button>
+                </HoverCardTrigger>
 
-          {/* User Profile */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="link"
-                className="flex justify-center items-center md:w-11 md:h-11 sm:w-10 sm:h-10 w-9 h-9 border border-primary bg-primary rounded-md !p-[10px] cursor-pointer"
-              >
-                <img
-                  src="/icons/user.svg"
-                  className="object-contain w-full h-full"
-                />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="2xl:!mr-20 xl:!mr-10 !mr-5">
-              <Link to={"/login"}>
-                <DropdownMenuItem>Login</DropdownMenuItem>
-              </Link>
-              <Link to={"/signup"}>
-                <DropdownMenuItem>Signup</DropdownMenuItem>
-              </Link>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      </div>
+                <HoverCardContent className="lg:w-80 w-72 xl:h-80 lg:h-64 h-56 2xl:!mr-16 xl:!mr-10 !mr-5">
+                  <div className="flex flex-col justify-center items-center py-4">
+                    <div className="xl:w-48 xl:h-48 lg:w-32 lg:h-32 w-28 h-28">
+                      <img
+                        src="/icons/cart-two.svg"
+                        className="w-fit h-fit object-cover ml-[10px] gap-5"
+                      />
+                    </div>
+                    <div className="flex flex-col justify-center items-center gap-1">
+                      <p className="lg:text-base text-sm font-bold">
+                        No Orders
+                      </p>
+                      <p className="lg:text-sm text-[12px] text-gray-darkGray/90">
+                        You haven't made any orders yet.
+                      </p>
+                    </div>
+                  </div>
+                </HoverCardContent>
+              </HoverCard>
+
+              <div className="xl:hidden">
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="link"
+                      className="flex justify-center items-center md:w-11 md:h-11 sm:w-10 sm:h-10 w-9 h-9 border rounded-md !p-[10px] cursor-pointer"
+                    >
+                      <img
+                        src="/icons/cart.svg"
+                        className="object-contain w-full h-full"
+                      />
+                    </Button>
+                  </PopoverTrigger>
+
+                  <PopoverContent className="!mt-2 lg:w-80 md:w-64 sm:w-60 w-54 xl:h-80 lg:h-64 sm:h-56 2xl:!mr-16 xl:!mr-10 !mr-5">
+                    <div className="flex flex-col justify-end items-center sm:gap-5 gap-3">
+                      <div className="xl:w-48 xl:h-48 lg:w-32 lg:h-32 sm:w-28 sm:h-28 w-20 h-20">
+                        <img
+                          src="/icons/cart-two.svg"
+                          className="w-full h-full object-contain ml-[10px] gap-5"
+                        />
+                      </div>
+                      <div className="flex flex-col justify-center items-center gap-1 !mb-1">
+                        <p className="lg:text-base text-sm sm:font-bold font-semibold">
+                          No Orders
+                        </p>
+                        <p className="lg:text-sm sm:text-[12px] text-[10px] text-gray-darkGray/90">
+                          You haven't made any orders yet.
+                        </p>
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
+              </div>
+
+              {/* Favourites */}
+              <HoverCard openDelay={20} closeDelay={10}>
+                <HoverCardTrigger asChild>
+                  <Button
+                    variant="link"
+                    className="hidden xl:flex justify-center items-center md:w-11 md:h-11 sm:w-10 sm:h-10 w-9 h-9 border rounded-md !p-[10px] cursor-pointer"
+                  >
+                    <img
+                      src="/icons/favourite.svg"
+                      className="object-contain w-full h-full"
+                    />
+                  </Button>
+                </HoverCardTrigger>
+
+                <HoverCardContent className="lg:w-80 w-72 xl:h-80 lg:h-64 h-56 2xl:!mr-40 xl:!mr-10 !mr-5">
+                  <div className="flex flex-col justify-center items-center py-2 gap-5">
+                    <div className="xl:w-48 xl:h-48 lg:w-32 lg:h-32 w-28 h-28">
+                      <img
+                        src="/icons/favourite-two.svg"
+                        className="w-fit h-fit object-cover"
+                      />
+                    </div>
+                    <div className="flex flex-col justify-center items-center gap-1">
+                      <p className="lg:text-base text-sm font-bold">
+                        No Orders
+                      </p>
+                      <p className="lg:text-sm text-[12px] text-gray-darkGray/90">
+                        You haven't made any orders yet.
+                      </p>
+                    </div>
+                  </div>
+                </HoverCardContent>
+              </HoverCard>
+
+              <div className="xl:hidden">
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="link"
+                      className="flex justify-center items-center md:w-11 md:h-11 sm:w-10 sm:h-10 w-9 h-9 border rounded-md !p-[10px] cursor-pointer"
+                    >
+                      <img
+                        src="/icons/favourite.svg"
+                        className="object-contain w-full h-full"
+                      />
+                    </Button>
+                  </PopoverTrigger>
+
+                  <PopoverContent className="!mt-2 lg:w-80 md:w-64 sm:w-60 w-54 xl:h-80 lg:h-64 sm:h-56 2xl:!mr-40 xl:!mr-10 !mr-5">
+                    <div className="flex flex-col justify-center items-center sm:gap-5 gap-3">
+                      <div className="xl:w-48 xl:h-48 lg:w-32 lg:h-32 sm:w-28 sm:h-28 w-20 h-20">
+                        <img
+                          src="/icons/favourite-two.svg"
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                      <div className="flex flex-col justify-center items-center gap-1 !mb-1">
+                        <p className="lg:text-base text-sm sm:font-bold font-semi-bold">
+                          No Orders
+                        </p>
+                        <p className="lg:text-sm sm:text-[12px] text-[10px] text-gray-darkGray/90">
+                          You haven't made any orders yet.
+                        </p>
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
+              </div>
+
+              {/* User Profile */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="link"
+                    className="flex justify-center items-center md:w-11 md:h-11 sm:w-10 sm:h-10 w-9 h-9 border border-primary bg-primary rounded-md !p-[10px] cursor-pointer"
+                  >
+                    <img
+                      src="/icons/user.svg"
+                      className="object-contain w-full h-full"
+                    />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="2xl:!mr-20 xl:!mr-10 !mr-5">
+                  <Link to={"/login"}>
+                    <DropdownMenuItem>Login</DropdownMenuItem>
+                  </Link>
+                  <Link to={"/signup"}>
+                    <DropdownMenuItem>Signup</DropdownMenuItem>
+                  </Link>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+          </div>
+        </>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
