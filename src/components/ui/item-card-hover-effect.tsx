@@ -58,7 +58,7 @@ export const HoverEffect = ({
 
                 {/* Sold */}
                 {item.sold && (
-                  <div className="flex flex-col justify-center items-center text-center sm:w-14 sm:h-14 w-12 h-12 p-1 rounded-full bg-[#B1B1B1]/70 absolute">
+                  <div className="flex flex-col justify-center items-center text-center sm:w-14 sm:h-16 w-12 h-12 p-1 rounded-full bg-[#B1B1B1]/70 absolute">
                     <p className="text-white sm:text-sm text-[11px] font-medium sm:leading-4 leading-3">
                       Sold out
                     </p>
@@ -67,7 +67,7 @@ export const HoverEffect = ({
               </div>
 
               {/* Item Name and Price */}
-              <div className="flex flex-col justify-between items-start w-full xl:!mt-5 !mt-3 sm:max-h-20 max-h-16 h-full">
+              <div className="flex flex-col justify-between items-start w-full xl:!mt-5 !mt-3 sm:max-h-21 max-h-16 h-full">
                 <div className=" flex flex-col text-start gap-1">
                   <p className="font-medium sm:text-base text-[12px] text-ellipsis line-clamp-2">{item.itemName}</p>
                   <p className="sm:text-sm text-[12px]">${item.price.toFixed(2)}</p>

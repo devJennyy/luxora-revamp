@@ -31,7 +31,7 @@ const Header = () => {
   const location = useLocation();
   const isCustomPage =
   location.pathname === "/homepage" ||
-  location.pathname === "/womens-apparel" ||
+  location.pathname === "/product-list" ||
   location.pathname === "/";
 
 

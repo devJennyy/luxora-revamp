@@ -66,12 +66,12 @@ export const categoryData = [
   {
     categoryImage: "/images/categories/womens-apparel.png",
     categoryName: "Women's Apparels",
-    href: "/womens-apparel"
+    href: "/product-list?category=womens-apparel"
   },
   {
     categoryImage: "/images/categories/womens-shoes.png",
     categoryName: "Women's Shoes",
-    href: "/womens-apparel"
+    href: "/product-list?category=womens-shoes"
   },
   {
     categoryImage: "/images/categories/cosmetics.png",

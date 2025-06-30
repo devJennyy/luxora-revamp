@@ -8,7 +8,6 @@ import {
   sizes,
   tags,
   womensApparel,
-  womensShoes,
 } from "@/constants/womensApparelData";
 import { useEffect, useState } from "react";
 import { IoFilterOutline } from "react-icons/io5";
@@ -16,49 +15,27 @@ import { useSearchParams } from "react-router-dom";
 
 const PRODUCTS_PER_PAGE = 6;
 
-const WomensApparel = () => {
+const ProductList = () => {
   const [visibleCount, setVisibleCount] = useState(PRODUCTS_PER_PAGE);
-  const [selectedColor, setSelectedColor] = useState<string | null>(null);
-  const [selectedPrice, setSelectedPrice] = useState<{
-    label: string;
-    min: number;
-    max: number;
-  } | null>(null);
   const [dataToUse, setDataToUse] = useState<any[]>([]);
 
   const handleLoadMore = () => {
     setVisibleCount((prev) => prev + PRODUCTS_PER_PAGE);
   };
 
-//  const filteredApparel = womensApparel.filter((item) => {
-//   const priceMatch = selectedPrice
-//     ? item.price >= selectedPrice.min && item.price <= selectedPrice.max
-//     : true;
-//   const colorMatch = selectedColor
-//     ? item.colors?.includes(selectedColor)
-//     : true;
-//   return priceMatch && colorMatch;
-// });
-
-// //  create a use effect that gets the query param named 'shop'
-
-const [searchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    const shop = searchParams.get("shop");
-    if (shop === 'womens-apparel') {
+    const category = searchParams.get("category");
+    if (category === "womens-apparel") {
       setDataToUse(womensApparel);
-    }
-    else if(shop === 'womens-shoes'){
-      setDataToUse(womensShoes);
+    } else if (category === "womens-shoes") {
+      // setDataToUse("");
     }
   }, [searchParams]);
 
-  useEffect(() => {
-    setVisibleCount(PRODUCTS_PER_PAGE);
-  }, [selectedPrice]);
   return (
-   <section
+    <section
       id="womens-apparel"
       className="relative w-full max-w-[1280px] !mx-auto xl:px-10 lg:px-5 lg:!my-16 !my-8 flex justify-between gap-20"
     >
@@ -69,10 +46,6 @@ const [searchParams] = useSearchParams();
           prices={prices}
           collections={collections}
           tags={tags}
-          selectedPrice={selectedPrice}
-          onPriceChange={setSelectedPrice}
-          selectedColor={selectedColor}
-          onColorChange={setSelectedColor}
         />
       </div>
 
@@ -85,13 +58,11 @@ const [searchParams] = useSearchParams();
         </div>
 
         <HoverEffect
-          items={dataToUse
-            .slice(0, visibleCount)
-            .map((item, idx) => ({
-              ...item,
-              link: item.link ?? "#",
-              idx,
-            }))}
+          items={dataToUse.slice(0, visibleCount).map((item, idx) => ({
+            ...item,
+            link: item.link ?? "#",
+            idx,
+          }))}
         />
 
         {visibleCount < dataToUse.length && (
@@ -99,7 +70,9 @@ const [searchParams] = useSearchParams();
             className="sm:px-8 px-5 sm:py-[14px] py-[10px] border hover:bg-primary hover:text-white active:bg-primary active:text-white focus:bg-primary focus:text-white rounded-md w-fit h-fit !mt-8 cursor-pointer transition-default"
             onClick={handleLoadMore}
           >
-            <p className="sm:text-sm text-[12px] font-medium">Load More Products</p>
+            <p className="sm:text-sm text-[12px] font-medium">
+              Load More Products
+            </p>
           </button>
         )}
       </div>
@@ -107,4 +80,4 @@ const [searchParams] = useSearchParams();
   );
 };
 
-export default WomensApparel;
+export default ProductList;

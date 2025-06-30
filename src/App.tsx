@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Faqs from "./pages/Faqs";
 import HelpCenter from "./pages/HelpCenter";
-import WomensApparel from "./pages/WomensApparel";
+import ProductList from "./pages/ProductList";
 
 function App() {
   return (
@@ -20,7 +20,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/faqs" element={<Faqs />} />
         <Route path="/help-center" element={<HelpCenter />} />
-        <Route path="/womens-apparel" element={<WomensApparel />} />
+        <Route path="/product-list" element={<ProductList />} />
+         {/* <Route path="/product-overview" element={<ProductOverview />} /> */}
       </Routes>
       <Footer />
     </Router>
