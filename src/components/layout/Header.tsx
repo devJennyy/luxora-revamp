@@ -29,14 +29,18 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 const Header = () => {
   const location = useLocation();
-  const isHome = location.pathname === "/homepage";
+  const isCustomPage =
+  location.pathname === "/homepage" ||
+  location.pathname === "/womens-apparel" ||
+  location.pathname === "/";
+
 
   return (
     <div className="w-full text-white">
       {/* Top Header */}
       <div className="w-full sm:h-12 h-10 bg-primary">
         <div className="w-full max-w-[1280px] !mx-auto h-full flex justify-between items-center xl:px-10 sm:px-5 px-4 xl:text-sm sm:text-[12px] text-[11.5px] font-light">
-          {isHome ? (
+          {isCustomPage ? (
             <div className="flex items-center gap-2">
               <BsBagCheckFill className="!mb-1 sm:text-base text-[12px]" />
               <p>Free shipping on all orders over $22</p>
@@ -107,24 +111,24 @@ const Header = () => {
       </div>
 
       {/* Main Header */}
-      {isHome ? (
+      {isCustomPage ? (
         <>
-          <div className="h-8 md:hidden !mt-5">
+          <a href="/homepage" className="h-8 md:hidden !mt-5 block">
             <img
               src="/logo/logo-black.svg"
               alt="Luxora logo"
               className="w-full h-full object-contain"
             />
-          </div>
+          </a>
 
           <div className="border-b w-full sm:h-24 h-20 max-w-[1280px] !mx-auto flex justify-between items-center xl:px-10 sm:px-5 p-4">
-            <div className="w-full md:max-w-56 md:flex justify-start hidden">
+            <Link to={"/homepage"} className="w-full md:max-w-56 md:flex justify-start hidden">
               <img
                 src="/logo/logo-black.svg"
                 alt="Luxora logo"
                 className="w-fit xl:h-9 md:h-8 h-7 object-contain"
               />
-            </div>
+            </Link>
 
             {/* Search Bar */}
             <div className="flex justify-end items-center w-full md:max-w-[25rem] transition-slow md:h-11 sm:h-10 h-9 !md:mr-0 !mr-3 relative">

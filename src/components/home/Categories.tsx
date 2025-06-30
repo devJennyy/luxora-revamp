@@ -1,5 +1,6 @@
 import { categoryData } from "@/constants/data";
 import SectionHeading from "../shared/SectionHeading";
+import { Link } from "react-router-dom";
 
 const Categories = () => {
   return (
@@ -9,7 +10,7 @@ const Categories = () => {
       <div className="grid grid-cols-5 xl:grid-cols-7 lg:gap-x-12 sm:gap-x-8 gap-4 md:gap-y-14 sm:gap-y-10 gap-y-6 w-full">
         {categoryData?.map((item, index) => {
           return (
-            <div className={`flex flex-col items-center gap-5 ${index === 14 ? 'xl:hidden' : ''}`}>
+            <Link to={item.href ?? "#"} className={`flex flex-col items-center gap-5 ${index === 14 ? 'xl:hidden' : ''}`}>
               <div key={index} className="w-full max-w-32 flex justify-center items-center transition-default cursor-pointer hover:border active:border focus:border border-muted/20 rounded-full bg-primary-muted aspect-square">
               <img
                 src={item.categoryImage}
@@ -18,7 +19,7 @@ const Categories = () => {
               />
             </div>
             <p className="text-center xl:text-base md:text-sm sm:text-[12px] text-[8px]">{item.categoryName}</p>
-            </div>
+            </Link>
           );
         })}
       </div>

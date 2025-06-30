@@ -16,7 +16,10 @@ const Footer = () => {
   };
   return (
     <footer className="w-full">
-      <div id="footer" className="w-full max-w-[1280px] !mx-auto xl:px-10 sm:px-5 px-4 flex flex-col sm:gap-20 gap-12 py-5">
+      <div
+        id="footer"
+        className="w-full max-w-[1280px] !mx-auto xl:px-10 sm:px-5 px-4 flex flex-col sm:gap-20 gap-12 py-5"
+      >
         <div className="w-full xl:h-32 md:h-36 sm:h-32 h-16 border sm:border-muted/30 border-muted/20 rounded-md lg:px-3 px-1">
           <div className="grid grid-cols-4 justify-between items-center w-full h-full">
             {benefits?.map((item, index) => {
@@ -52,15 +55,12 @@ const Footer = () => {
             </p>
 
             <p className="lg:hidden sm:block hidden w-full text-left text-primary/60 dark:text-white/60 sm:text-sm text-[12px]">
-              <p>
-                Lorem ipsum dolor sit amet. Id odio eaque eos nisi harum sit
-                autem fugiat. Est voluptates illo quo ratione natus ut numquam
-                molestiae ut mollitia omnis!
-                Ea eaque repudiandae non consequatur harum est recusandae
-                inventore id voluptas magni aut placeat perspiciatis eum minus
-                earum ab praesentium magni. Eos quibusdam eaque qui laudantium
-                iure vel corrupti iusto aut excepturi fugit.
-              </p>
+              Lorem ipsum dolor sit amet. Id odio eaque eos nisi harum sit autem
+              fugiat. Est voluptates illo quo ratione natus ut numquam molestiae
+              ut mollitia omnis! Ea eaque repudiandae non consequatur harum est
+              recusandae inventore id voluptas magni aut placeat perspiciatis
+              eum minus earum ab praesentium magni. Eos quibusdam eaque qui
+              laudantium iure vel corrupti iusto aut excepturi fugit.
             </p>
 
             <div className="grid grid-cols-5 !mt-3 lg:gap-4 w-full max-w-[250px] ">

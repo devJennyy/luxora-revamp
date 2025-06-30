@@ -12,11 +12,25 @@
   --color-primary-muted: #F5F5F5;
   --color-muted: #9A9CAA;
   --color-white: #FFFFFF;
+
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1440px;
+
+  --color-item-lightBeige: #EBE6DB;
+  --color-item-skyBlue: #B1C5D4;
+  --color-item-rose: #C6AEC7;
+  --color-item-earthBrown: #836953;
+  --color-item-brightBlue: #6CB9FF;
+  --color-item-pink: #FFD1DC;
+  --color-item-mintGreen: #C1E1C1;
+  --color-item-blush: #C6AEC7;
+  --color-item-navyBlue: #063E66;
+  --color-item-steelBlue: #8DB4D2;
+  --color-item-gold: #FFD700;
+  --color-item-coral: #FF6C6C;
 }
 
 @theme inline {
@@ -43,7 +57,7 @@ body {
   min-width: 100% !important;
 }
 
-html > body[data-scroll-locked] {
+html>body[data-scroll-locked] {
   overflow: visible !important;
   margin-right: 0 !important;
 }
@@ -191,6 +205,7 @@ html > body[data-scroll-locked] {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

@@ -66,14 +66,17 @@ export const categoryData = [
   {
     categoryImage: "/images/categories/womens-apparel.png",
     categoryName: "Women's Apparels",
+    href: "/womens-apparel"
   },
   {
     categoryImage: "/images/categories/womens-shoes.png",
     categoryName: "Women's Shoes",
+    href: "/womens-apparel"
   },
   {
     categoryImage: "/images/categories/cosmetics.png",
     categoryName: "Cosmetics",
+    href: "/womens-apparel"
   },
   {
     categoryImage: "/images/categories/home-decor.png",
@@ -82,46 +85,57 @@ export const categoryData = [
   {
     categoryImage: "/images/categories/appliances.png",
     categoryName: "Appliances",
+    href: "/womens-apparel"
   },
   {
     categoryImage: "/images/categories/womens-accessories.png",
     categoryName: "Women's Accessories",
+    href: "/womens-apparel"
   },
   {
     categoryImage: "/images/categories/bags.png",
     categoryName: "Bags",
+    href: "/womens-apparel"
   },
   {
     categoryImage: "/images/categories/mens-apparel.png",
     categoryName: "Men's Apparel",
+    href: "/womens-apparel"
   },
   {
     categoryImage: "/images/categories/men-shoes.png",
     categoryName: "Men's Shoes",
+    href: "/womens-apparel"
   },
   {
     categoryImage: "/images/categories/gadgets.png",
     categoryName: "Gadgets",
+    href: "/womens-apparel"
   },
   {
     categoryImage: "/images/categories/motors.png",
     categoryName: "Motors",
+    href: "/womens-apparel"
   },
   {
     categoryImage: "/images/categories/home&living.png",
     categoryName: "Home & Living",
+    href: "/womens-apparel"
   },
   {
     categoryImage: "/images/categories/mens-accessories.png",
     categoryName: "Men's Accessories",
+    href: "/womens-apparel"
   },
   {
     categoryImage: "/images/categories/mobiles-accessories.png",
     categoryName: "Mobile Accessories",
+    href: "/womens-apparel"
   },
   {
     categoryImage: "/images/categories/gaming-console.png",
     categoryName: "Gaming Consoles",
+    href: "/womens-apparel"
   },
 ];
 
