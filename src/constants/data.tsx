@@ -137,19 +137,19 @@ export const flashDealsData = [
 export const benefits = [
   {
     title: "Free Shipping",
-    icon: <BiLogoTelegram className="sm:text-[26px] text-lg" />,
+    icon: <BiLogoTelegram className="sm:text-[26px] text-xl" />,
   },
   {
     title: "Guaranteed Refund",
-    icon: <MdOutlineCurrencyExchange className="sm:text-[26px] text-lg" />,
+    icon: <MdOutlineCurrencyExchange className="sm:text-[26px] text-xl" />,
   },
   {
     title: "Fast Delivery",
-    icon: <BiSolidTruck className="sm:text-[26px] text-lg" />,
+    icon: <BiSolidTruck className="sm:text-[26px] text-xl" />,
   },
   {
     title: "Flexible Payments",
-    icon: <MdPayment className="sm:text-[26px] text-lg" />,
+    icon: <MdPayment className="sm:text-[26px] text-xl" />,
   },
 ];
 

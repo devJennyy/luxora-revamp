@@ -40,7 +40,7 @@ const Faqs = () => {
           <div key={sectionIndex} className="w-full flex md:flex-row flex-col md:justify-between md:gap-8 gap-3">
             <div className="md:w-1/2 flex flex-col justify-start gap-2">
               <h2 className="sm:text-2xl text-xl font-medium">{section.title}</h2>
-              <p className="text-secondary text-sm lg:w-[65%] w-[75%]">
+              <p className="text-secondary text-sm lg:w-[65%] sm:w-[80%] w-[95%] sm:leading-normal leading-relaxed">
                 {section.description}
               </p>
             </div>
@@ -51,7 +51,7 @@ const Faqs = () => {
                 return (
                   <AccordionItem value={uniqueValue} key={uniqueValue}>
                     <AccordionTrigger>{title}</AccordionTrigger>
-                    <AccordionContent className="flex flex-col gap-4 text-balance">
+                    <AccordionContent className="flex flex-col gap-4 text-balance text-secondary sm:leading-normal leading-relaxed">
                       {content.map((text, idx) => (
                         <p key={idx}>{text}</p>
                       ))}

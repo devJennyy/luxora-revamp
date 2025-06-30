@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState, type Key } from "react";
 import { FaCheck } from "react-icons/fa6";
+import { MdArrowOutward } from "react-icons/md";
 
 export const InfiniteMovingCards = ({
   items,
@@ -76,7 +77,7 @@ export const InfiniteMovingCards = ({
       ref={containerRef}
       className={cn(
         "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
-        className,
+        className
       )}
     >
       <ul
@@ -84,7 +85,7 @@ export const InfiniteMovingCards = ({
         className={cn(
           "flex w-max min-w-full shrink-0 flex-nowrap gap-4 py-4",
           start && "animate-scroll",
-          pauseOnHover && "hover:[animation-play-state:paused]",
+          pauseOnHover && "hover:[animation-play-state:paused]"
         )}
       >
         {items.map((item) => (
@@ -94,13 +95,16 @@ export const InfiniteMovingCards = ({
           >
             <blockquote className="flex flex-col gap-3">
               <div className="sm:w-7 sm:h-7 w-6 h-6 rounded-full bg-primary flex justify-center items-center">
-                <FaCheck className="text-white sm:text-sm text-[12px]"/>
+                <FaCheck className="text-white sm:text-sm text-[12px]" />
               </div>
               <h1 className="sm:text-lg font-medium !mt-2">{item.title}</h1>
-              <span className="relative z-20 sm:text-sm text-[12px] leading-[1.6] font-normal text-secondary">
+              <span className="relative z-20 text-sm leading-[1.6] font-normal text-zinc-400">
                 {item.quote}
               </span>
-              <p className="underline underline-offset-4 sm:text-sm text-[12px] cursor-pointer">{item.cta}</p>
+              <div className="flex justify-start items-center text-sm gap-2">
+                <p className="hover:underline underline-offset-4">Learn More</p>
+                <MdArrowOutward />
+              </div>
             </blockquote>
           </li>
         ))}

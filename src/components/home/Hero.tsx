@@ -98,11 +98,11 @@ const Hero = () => {
                   {item.icon}
                 </div>
                 <p
-                  className={`${item.customClass} lg:text-base md:text-sm sm:text-[12px] text-[7.5px] font-medium xl:!mt-0 sm:!mt-2 !mt-1`}
+                  className={`${item.customClass} lg:text-base md:text-sm sm:text-[12px] text-[8px] font-medium xl:!mt-0 sm:!mt-2 !mt-1`}
                 >
                   {item.title}
                 </p>
-                <p className="lg:text-[12px] md:text-[10px] sm:text-[9px] text-[5.5px] font-normal text-muted">
+                <p className="lg:text-[12px] md:text-[10px] sm:text-[9px] text-[6px] font-normal text-muted">
                   {item.description}
                 </p>
               </div>

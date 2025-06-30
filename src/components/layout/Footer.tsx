@@ -26,7 +26,7 @@ const Footer = () => {
                   className="flex flex-col justify-center items-center sm:gap-4 gap-2 transition-all"
                 >
                   {item.icon}
-                  <p className="md:text-base sm:text-sm text-[8px]">
+                  <p className="md:text-base sm:text-sm text-[8px] font-medium">
                     {item.title}
                   </p>
                 </div>

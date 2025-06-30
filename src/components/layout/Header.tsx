@@ -42,7 +42,7 @@ const Header = () => {
               <p>Free shipping on all orders over $22</p>
             </div>
           ) : (
-            <Link to={"/homepage"} className="h-6">
+            <Link to={"/homepage"} className="h-6 w-fit">
               <img
                 src="/logo/logo-white.svg"
                 alt="Luxora Logo"

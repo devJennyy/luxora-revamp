@@ -52,7 +52,7 @@ export const HoverEffect = ({
             <div className="flex justify-center items-center w-14 h-14 rounded-full bg-secondary/10 !mb-2">
               {item.icon}
             </div>
-            <CardTitle className="text-primary font-semibold text-lg text-center">{item.title}</CardTitle>
+            <CardTitle className="text-primary font-semibold sm:text-lg text-center">{item.title}</CardTitle>
             <CardDescription className="text-center">{item.description}</CardDescription>
             <div className="flex justify-center items-center text-sm gap-2">
               <p className="font-medium">Learn More</p>
