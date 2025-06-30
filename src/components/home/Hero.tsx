@@ -9,7 +9,7 @@ import {
 
 const Hero = () => {
   return (
-    <div className="w-full flex flex-col sm:gap-16 gap-8">
+    <section className="w-full flex flex-col sm:gap-16 gap-8">
       <div className="w-full flex lg:flex-row flex-col-reverse gap-2">
         <div className="flex lg:flex-col flex-row gap-2 xl:max-w-[390px] lg:max-w-[340px] w-full max-w-full">
           <Swiper
@@ -18,7 +18,7 @@ const Hero = () => {
             loop={true}
             modules={[Autoplay]}
             autoplay={{
-              delay: 2500,
+              delay: 2300,
               disableOnInteraction: false,
               waitForTransition: true,
             }}
@@ -110,7 +110,7 @@ const Hero = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -3,7 +3,7 @@ import SectionHeading from "../shared/SectionHeading";
 
 const Categories = () => {
   return (
-    <div className="sm:!my-20 !my-10 flex flex-col lg:gap-14 sm:gap-10 gap-8">
+    <section className="sm:!my-20 !my-10 flex flex-col lg:gap-14 sm:gap-10 gap-8">
       <SectionHeading subtitle={"Shop From"} title={"Top Categories"} />
 
       <div className="grid grid-cols-5 xl:grid-cols-7 lg:gap-x-12 sm:gap-x-8 gap-4 md:gap-y-14 sm:gap-y-10 gap-y-6 w-full">
@@ -22,7 +22,7 @@ const Categories = () => {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 

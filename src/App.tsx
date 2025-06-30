@@ -5,6 +5,8 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Faqs from "./pages/Faqs";
+import HelpCenter from "./pages/HelpCenter";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="/homepage" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/faqs" element={<Faqs />} />
+        <Route path="/help-center" element={<HelpCenter />} />
       </Routes>
       <Footer />
     </Router>

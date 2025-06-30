@@ -33,6 +33,7 @@ const Header = () => {
 
   return (
     <div className="w-full text-white">
+      {/* Top Header */}
       <div className="w-full sm:h-12 h-10 bg-primary">
         <div className="w-full max-w-[1280px] !mx-auto h-full flex justify-between items-center xl:px-10 sm:px-5 px-4 xl:text-sm sm:text-[12px] text-[11.5px] font-light">
           {isHome ? (
@@ -105,6 +106,7 @@ const Header = () => {
         </div>
       </div>
 
+      {/* Main Header */}
       {isHome ? (
         <>
           <div className="h-8 md:hidden !mt-5">
@@ -140,8 +142,8 @@ const Header = () => {
               />
             </div>
 
-            {/* Cart */}
             <div className="md:w-full md:max-w-48 flex justify-end items-center sm:gap-2 gap-[5px]">
+              {/* Cart */}
               <HoverCard openDelay={20} closeDelay={10}>
                 <HoverCardTrigger asChild>
                   <Button
@@ -175,6 +177,7 @@ const Header = () => {
                 </HoverCardContent>
               </HoverCard>
 
+              {/* Cart on mobile*/}
               <div className="xl:hidden">
                 <Popover>
                   <PopoverTrigger asChild>
@@ -244,6 +247,7 @@ const Header = () => {
                 </HoverCardContent>
               </HoverCard>
 
+              {/* Favourites on mobile*/}
               <div className="xl:hidden">
                 <Popover>
                   <PopoverTrigger asChild>
@@ -294,10 +298,10 @@ const Header = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="2xl:!mr-20 xl:!mr-10 !mr-5">
                   <Link to={"/login"}>
-                    <DropdownMenuItem>Login</DropdownMenuItem>
+                    <DropdownMenuItem className="sm:text-sm text-[12px]">Login</DropdownMenuItem>
                   </Link>
                   <Link to={"/signup"}>
-                    <DropdownMenuItem>Signup</DropdownMenuItem>
+                    <DropdownMenuItem className="sm:text-sm text-[12px]">Signup</DropdownMenuItem>
                   </Link>
                 </DropdownMenuContent>
               </DropdownMenu>
