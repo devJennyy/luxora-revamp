@@ -156,6 +156,8 @@ const AdditionalInfo = () => {
          <HoverEffect
           items={womensApparel.map((item, idx) => ({
             ...item,
+            id: 1,
+            price: String(item.price),
             link: item.link ?? "#",
             idx,
           }))}

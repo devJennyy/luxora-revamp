@@ -1,10 +1,10 @@
-import { womensApparels } from "@/constants/womensApparelData";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import { LuMinus, LuPlus } from "react-icons/lu";
 import type { JSX } from "react/jsx-runtime";
 import Countdown from "react-countdown";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import {
   HoverCard,
   HoverCardContent,
@@ -13,6 +13,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { IoMdHeart } from "react-icons/io";
 import { IoHeartOutline } from "react-icons/io5";
+import { allItem, womensApparel } from "@/constants/womensApparelData";
 
 const ProductSummary = () => {
   const [count, setCount] = useState(1);
@@ -28,15 +29,24 @@ const ProductSummary = () => {
     }
     return stars;
   };
+  const [itemData, setItemData] = useState<any>({});
+
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const productId = parseInt(searchParams.get("id") || '');
+    
+    setItemData(allItem.find(item => item.id === productId))
+  }, [searchParams]);
   return (
     <section className="w-full flex md:flex-row flex-col justify-between xl:gap-0 sm:gap-10 gap-8">
       {/* Media */}
       <div className="flex xl:flex-row flex-col-reverse sm:h-[35rem] h-[20rem] gap-4 overflow-hidden w-full">
         <div className="flex xl:flex-col flex-row justify-between h-full gap-1">
-          {womensApparels?.map((item, itemIndex) =>
-            item.pinkElegantSleeveless?.map((selection, index) => (
+          {
+            itemData.productVariants?.map((selection: any, index: number) => (
               <button
-                key={`${itemIndex}-${index}`}
+                key={index}
                 className={`${
                   index === 0
                     ? "border-2 border-primary"
@@ -45,17 +55,17 @@ const ProductSummary = () => {
               >
                 <img
                   src={selection}
-                  alt=""
+                  alt={itemData.primaryProduct}
                   className="w-full xl:max-w-20 h-full object-cover p-1"
                 />
               </button>
             ))
-          )}
+          }
         </div>
 
         <div className="w-full md:max-w-[32rem] h-full border-red-700">
           <img
-            src={womensApparels[0]?.image}
+            src={itemData?.primaryProduct}
             className="w-full h-full object-cover"
           />
         </div>
@@ -112,7 +122,7 @@ const ProductSummary = () => {
         <div className="flex flex-col gap-3">
           <p className="sm:text-base text-sm font-medium">Size</p>
           <div className="flex sm:gap-3 gap-2 sm:text-sm text-[12px]">
-            {womensApparels?.map((item, itemIndex) =>
+            {womensApparel?.map((item, itemIndex) =>
               item.sizes?.map((sizes, index) => (
                 <button
                   key={`${itemIndex}-${index}`}
@@ -133,7 +143,7 @@ const ProductSummary = () => {
         <div className="flex flex-col gap-3">
           <p className="sm:text-base text-sm font-medium">Color</p>
           <div className="flex justify-start items-center gap-3">
-            {womensApparels?.map((item, itemIndex) =>
+            {womensApparel?.map((item, itemIndex) =>
               item.colors?.map((color, index) => (
                 <button
                   key={`${itemIndex}-${index}`}
@@ -201,29 +211,6 @@ const ProductSummary = () => {
               </HoverCard>
             </Link>
           </div>
-        </div>
-
-        {/* Favourite */}
-        <div className="absolute top-0 right-0 sm:hidden">
-          <HoverCard openDelay={20} closeDelay={10}>
-            <HoverCardTrigger asChild>
-              <Button
-                variant="link"
-                className="flex justify-center items-center p-[6px] border rounded-md"
-              >
-                <IoHeartOutline size={20} />
-              </Button>
-            </HoverCardTrigger>
-
-            <HoverCardContent
-              side="top"
-              className="flex justify-center items-center gap-2 w-fit px-4 h-fit py-3 !mb-2 sm:text-sm text-[12px] font-medium right-[-1.2rem] bottom-1 absolute"
-            >
-              <IoMdHeart className="text-red-600 sm:text-xl text-sm" />
-              <p>Favorite</p>
-              <p>(8.2k)</p>
-            </HoverCardContent>
-          </HoverCard>
         </div>
       </div>
     </section>
