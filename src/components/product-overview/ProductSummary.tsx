@@ -29,10 +29,10 @@ const ProductSummary = () => {
     return stars;
   };
   return (
-    <section className="w-full flex justify-between">
+    <section className="w-full flex md:flex-row flex-col justify-between xl:gap-0 sm:gap-10 gap-8">
       {/* Media */}
-      <div className="flex h-[35rem] gap-4 overflow-hidden">
-        <div className="flex flex-col justify-between h-full gap-1">
+      <div className="flex xl:flex-row flex-col-reverse sm:h-[35rem] h-[20rem] gap-4 overflow-hidden w-full">
+        <div className="flex xl:flex-col flex-row justify-between h-full gap-1">
           {womensApparels?.map((item, itemIndex) =>
             item.pinkElegantSleeveless?.map((selection, index) => (
               <button
@@ -46,14 +46,14 @@ const ProductSummary = () => {
                 <img
                   src={selection}
                   alt=""
-                  className="w-20 h-full object-cover p-1"
+                  className="w-full xl:max-w-20 h-full object-cover p-1"
                 />
               </button>
             ))
           )}
         </div>
 
-        <div className="w-[32rem] h-full border-red-700">
+        <div className="w-full md:max-w-[32rem] h-full border-red-700">
           <img
             src={womensApparels[0]?.image}
             className="w-full h-full object-cover"
@@ -62,14 +62,18 @@ const ProductSummary = () => {
       </div>
 
       {/* Product Details */}
-      <div className="w-[33rem] flex flex-col gap-6">
+      <div className="w-full max-w-[33rem] flex flex-col gap-6 relative">
         {/* Product Name */}
-        <div className="flex flex-col gap-1">
-          <p className="uppercase text-sm font-medium">Shop Name</p>
-          <h1 className="text-3xl font-semibold">Summer Hat</h1>
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col sm:gap-1">
+          <p className="uppercase sm:text-sm text-[12px] font-medium">
+            BizChic
+          </p>
+          <h1 className="sm:text-3xl text-xl font-semibold capitalize">
+            Draped Neck Sleeveless
+          </h1>
+          <div className="flex items-center sm:gap-2 gap-1 !mt-2">
             {getStarRating()}
-            <div className="flex gap-2  text-sm text-secondary/80 font-normal !mt-2">
+            <div className="flex gap-2 sm:text-sm text-[12px] text-secondary/80 font-normal sm:!ml-0 !ml-1">
               <p>4.0</p>
               <p>(121 Reviews)</p>
             </div>
@@ -77,7 +81,7 @@ const ProductSummary = () => {
         </div>
 
         {/* Pricing */}
-        <div className="flex items-center gap-3 my-6">
+        <div className="flex items-center gap-3">
           <p className="text-2xl font-bold">$39.00</p>
           <p className="text-secondary/80 line-through">$59.00</p>
           <div className="flex justify-center items-center w-16 h-5 bg-red-600 rounded-full">
@@ -86,7 +90,7 @@ const ProductSummary = () => {
         </div>
 
         {/* Countdown */}
-        <div className="flex justify-between items-center bg-[#FDEFEE] w-full h-10 outline outline-[#F8CCCC] rounded-sm text-[#FF706B] text-sm font-medium px-4">
+        <div className="flex justify-between items-center sm:text-sm text-[12px] font-medium  bg-[#FDEFEE] w-full h-10 outline outline-[#F8CCCC] rounded-sm text-[#FF706B] px-4">
           <p>Hurry up! Sale ends in:</p>
           <Countdown
             className="tracking-[7px] font-bold"
@@ -106,16 +110,16 @@ const ProductSummary = () => {
 
         {/* Size */}
         <div className="flex flex-col gap-3">
-          <p className="text-base font-medium">Size</p>
-          <div className="flex gap-3 text-sm">
+          <p className="sm:text-base text-sm font-medium">Size</p>
+          <div className="flex sm:gap-3 gap-2 sm:text-sm text-[12px]">
             {womensApparels?.map((item, itemIndex) =>
               item.sizes?.map((sizes, index) => (
                 <button
                   key={`${itemIndex}-${index}`}
                   className={`${
                     index === 0
-                      ? "w-11 h-11 bg-primary text-white"
-                      : "w-11 h-11 border hover:bg-primary hover:text-white transition-all"
+                      ? "sm:w-11 sm:h-11 w-10 h-10 bg-primary text-white"
+                      : "sm:w-11 sm:h-11 w-10 h-10 border hover:bg-primary hover:text-white transition-all"
                   } flex justify-center items-center rounded-md`}
                 >
                   {sizes}
@@ -127,7 +131,7 @@ const ProductSummary = () => {
 
         {/* Color */}
         <div className="flex flex-col gap-3">
-          <p className="text-base font-medium">Color</p>
+          <p className="sm:text-base text-sm font-medium">Color</p>
           <div className="flex justify-start items-center gap-3">
             {womensApparels?.map((item, itemIndex) =>
               item.colors?.map((color, index) => (
@@ -146,21 +150,21 @@ const ProductSummary = () => {
 
         {/* Quantity */}
         <div className="flex flex-col gap-3">
-          <p className="text-base font-medium">Quantity</p>
-          <div className="flex justify-start gap-4">
+          <p className="sm:text-base text-sm font-medium">Quantity</p>
+          <div className="flex justify-start sm:gap-4 gap-3">
             <div className="flex">
               <button
                 onClick={() => setCount((prevCount) => prevCount - 1)}
-                className="flex justify-center items-center w-12 h-11 border rounded-tl-md rounded-bl-md"
+                className="flex justify-center items-center sm:w-12 sm:h-11 w-10 h-10 border rounded-tl-md rounded-bl-md"
               >
                 <LuMinus size={14} />
               </button>
-              <p className="flex justify-center items-center border-t border-b w-12 h-11">
+              <p className="flex justify-center items-center border-t border-b sm:w-12 sm:h-11 w-10 h-10">
                 {count}
               </p>
               <button
                 onClick={() => setCount((prevCount) => prevCount + 1)}
-                className="flex justify-center items-center w-12 h-11 border rounded-tr-md rounded-br-md"
+                className="flex justify-center items-center sm:w-12 sm:h-11 w-10 h-10 border rounded-tr-md rounded-br-md"
               >
                 <LuPlus size={14} />
               </button>
@@ -169,13 +173,13 @@ const ProductSummary = () => {
             {/* Add to cart */}
             <Link
               to={"/signup"}
-              className="flex justify-center items-center w-full h-11 bg-primary text-white rounded-md active:bg-transparent active:text-primary border border-primary transition-all"
+              className="flex justify-center items-center w-full sm:h-11 h-10 bg-primary text-white rounded-md active:bg-transparent active:text-primary border border-primary transition-all"
             >
-              <p>Add to cart</p>
+              <p className="lg:text-base text-sm">Add to cart</p>
             </Link>
 
             {/* Favourite */}
-            <Link to={"/signup"} className="relative">
+            <Link to={"/signup"} className="hidden sm:block relative">
               <HoverCard openDelay={20} closeDelay={10}>
                 <HoverCardTrigger asChild>
                   <Button
@@ -197,6 +201,29 @@ const ProductSummary = () => {
               </HoverCard>
             </Link>
           </div>
+        </div>
+
+        {/* Favourite */}
+        <div className="absolute top-0 right-0 sm:hidden">
+          <HoverCard openDelay={20} closeDelay={10}>
+            <HoverCardTrigger asChild>
+              <Button
+                variant="link"
+                className="flex justify-center items-center p-[6px] border rounded-md"
+              >
+                <IoHeartOutline size={20} />
+              </Button>
+            </HoverCardTrigger>
+
+            <HoverCardContent
+              side="top"
+              className="flex justify-center items-center gap-2 w-fit px-4 h-fit py-3 !mb-2 sm:text-sm text-[12px] font-medium right-[-1.2rem] bottom-1 absolute"
+            >
+              <IoMdHeart className="text-red-600 sm:text-xl text-sm" />
+              <p>Favorite</p>
+              <p>(8.2k)</p>
+            </HoverCardContent>
+          </HoverCard>
         </div>
       </div>
     </section>

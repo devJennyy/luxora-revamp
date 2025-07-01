@@ -4,7 +4,7 @@ import { womensApparel } from "@/constants/womensApparelData";
 
 const TABS = [
   { label: "Descriptions", value: "description" },
-  { label: "Additional Information", value: "additional" },
+  { label: "Additional Info", value: "additional" },
   { label: "Reviews", value: "reviews" },
 ];
 
@@ -28,7 +28,7 @@ const AdditionalInfo = () => {
   }, [activeTab]);
 
   return (
-    <section className="flex flex-col justify-start items-start gap-10">
+    <section className="flex flex-col justify-start items-start sm:gap-10 gap-8">
       <div className="flex flex-col gap-2 w-full">
         <div className="flex gap-10 font-medium transition-all relative">
           {TABS.map((tab, i) => (
@@ -37,7 +37,7 @@ const AdditionalInfo = () => {
               ref={(el) => {
                 tabRefs.current[i] = el;
               }}
-              className={`$activeTab === tab.value ? "text-primary" : "" cursor-pointer`}
+              className={`$activeTab === tab.value ? "text-primary" : "" cursor-pointer sm:text-base text-sm whitespace-nowrap`}
               onClick={() => setActiveTab(tab.value)}
             >
               {tab.label}
@@ -106,7 +106,7 @@ const AdditionalInfo = () => {
           </div>
         )}
         {activeTab === "reviews" && (
-          <div className="flex flex-col gap-6 w-full">
+          <div className="flex flex-col sm:gap-6 gap-4 w-full">
             <div className="flex items-center gap-3">
               <img
                 src="https://randomuser.me/api/portraits/women/44.jpg"
@@ -150,8 +150,8 @@ const AdditionalInfo = () => {
       </div>
 
       {/* Related Products */}
-      <div className="flex flex-col gap-8 lg:!mt-10">
-        <p className="lg:text-3xl font-semibold">Related Products</p>
+      <div className="flex flex-col xl:gap-8 gap-5 !mt-10">
+        <p className="lg:text-2xl font-semibold">Related Products</p>
 
          <HoverEffect
           items={womensApparel.map((item, idx) => ({
