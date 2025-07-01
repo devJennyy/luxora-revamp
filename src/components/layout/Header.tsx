@@ -32,7 +32,7 @@ const Header = () => {
   const isCustomPage =
   location.pathname === "/homepage" ||
   location.pathname === "/product-list" ||
-  location.pathname === "/";
+  location.pathname === "/product-overview";
 
 
   return (

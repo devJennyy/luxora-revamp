@@ -35,7 +35,7 @@ const ProductList = () => {
   }, [searchParams]);
 
   return (
-    <section
+    <div
       id="womens-apparel"
       className="relative w-full max-w-[1280px] !mx-auto xl:px-10 lg:px-5 lg:!my-16 !my-8 flex justify-between gap-20"
     >
@@ -76,7 +76,7 @@ const ProductList = () => {
           </button>
         )}
       </div>
-    </section>
+    </div>
   );
 };
 

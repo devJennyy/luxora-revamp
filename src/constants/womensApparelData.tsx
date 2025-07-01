@@ -42,13 +42,37 @@ export const tags = [
 ];
 
 export const womensApparel = [
-   {
-    image: "/images/womens-apparel/tops/elegant/pink/draped-neck-sleeveless-one.webp",
+  {
+    image:
+      "/images/womens-apparel/tops/elegant/pink/draped-neck-sleeveless-one.webp",
     itemName: "Elegant Sleeveless",
     price: 10.15,
-    colors: ["bg-item-lilacPurple", "bg-black", "bg-white",],
+    colors: ["bg-item-lilacPurple", "bg-black", "bg-white"],
     sold: false,
     link: "",
   },
 ];
+
+export const womensApparels = [
+  {
+    id: "womens-apparel/tops/elegant/pink/draped-neck-sleeveless",
+    image:
+      "/images/womens-apparel/tops/elegant/pink/draped-neck-sleeveless-one.webp",
+    pinkElegantSleeveless: [
+      "/images/womens-apparel/tops/elegant/pink/draped-neck-sleeveless-one.webp",
+      "/images/womens-apparel/tops/elegant/pink/draped-neck-sleeveless-two.webp",
+      "/images/womens-apparel/tops/elegant/pink/draped-neck-sleeveless-three.webp",
+      "/images/womens-apparel/tops/elegant/pink/draped-neck-sleeveless-four.webp",
+      "/images/womens-apparel/tops/elegant/pink/draped-neck-sleeveless-five.webp",
+    ],
+    itemName: "Elegant Sleeveless",
+    price: 10.15,
+    colors: ["bg-item-lilacPurple", "bg-black", "bg-white"],
+    sizes: ["S", "M", "L", "XL"],
+    sold: false,
+    link: "",
+  },
+];
+
+
 

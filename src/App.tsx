@@ -8,6 +8,7 @@ import Signup from "./pages/Signup";
 import Faqs from "./pages/Faqs";
 import HelpCenter from "./pages/HelpCenter";
 import ProductList from "./pages/ProductList";
+import ProductOverview from "./pages/ProductOverview";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
         <Route path="/faqs" element={<Faqs />} />
         <Route path="/help-center" element={<HelpCenter />} />
         <Route path="/product-list" element={<ProductList />} />
-         {/* <Route path="/product-overview" element={<ProductOverview />} /> */}
+        <Route path="/product-overview" element={<ProductOverview />} />
       </Routes>
       <Footer />
     </Router>
