@@ -13,7 +13,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { IoMdHeart } from "react-icons/io";
 import { IoHeartOutline } from "react-icons/io5";
-import { allItem, womensApparel } from "@/constants/womensApparelData";
+import { womensApparel } from "@/constants/womensApparelData";
+import { onValue, ref } from "firebase/database";
+import { db } from "@/firebase";
 
 const ProductSummary = () => {
   const [count, setCount] = useState(1);
@@ -35,13 +37,24 @@ const ProductSummary = () => {
 
   useEffect(() => {
     const productId = parseInt(searchParams.get("id") || '');
-    
-    setItemData(allItem.find(item => item.id === productId))
+    const category = searchParams.get("category");
+
+    if (category && productId) {
+      onValue(ref(db), (snapshot) => {
+        const data = snapshot.val();
+        if (data !== null) {
+          setItemData(data[category].find((item: any) => item.id === productId));
+        } else {
+          setItemData(null);
+        }
+      });
+    }
   }, [searchParams]);
+
   return (
     <section className="w-full flex md:flex-row flex-col justify-between xl:gap-0 sm:gap-10 gap-8">
       {/* Media */}
-      <div className="flex xl:flex-row flex-col-reverse sm:h-[35rem] h-[20rem] gap-4 overflow-hidden w-full">
+      <div className="flex xl:flex-row flex-col-reverse sm:h-[35rem] h-[20rem] sm:gap-4 gap-2 overflow-hidden w-full">
         <div className="flex xl:flex-col flex-row justify-between h-full gap-1">
           {
             itemData.productVariants?.map((selection: any, index: number) => (
@@ -51,21 +64,21 @@ const ProductSummary = () => {
                   index === 0
                     ? "border-2 border-primary"
                     : "border-2 border-white hover:border-primary active:border-primary focus:border-primary transition-default"
-                } w-full h-full border-2 border-primary cursor-pointer`}
+                } p-1 w-full h-full border-2 border-primary cursor-pointer`}
               >
                 <img
                   src={selection}
                   alt={itemData.primaryProduct}
-                  className="w-full xl:max-w-20 h-full object-cover p-1"
+                  className="w-full xl:w-20 sm:h-[97px] h-[60px] object-cover border"
                 />
               </button>
             ))
           }
         </div>
 
-        <div className="w-full md:max-w-[32rem] h-full border-red-700">
+        <div className="w-full xl:max-w-[500px] h-full border ">
           <img
-            src={itemData?.primaryProduct}
+            src={itemData?.thumbnail}
             className="w-full h-full object-cover"
           />
         </div>
@@ -76,10 +89,10 @@ const ProductSummary = () => {
         {/* Product Name */}
         <div className="flex flex-col sm:gap-1">
           <p className="uppercase sm:text-sm text-[12px] font-medium">
-            BizChic
+            {itemData?.shopName}
           </p>
           <h1 className="sm:text-3xl text-xl font-semibold capitalize">
-            Draped Neck Sleeveless
+            {itemData?.itemName}
           </h1>
           <div className="flex items-center sm:gap-2 gap-1 !mt-2">
             {getStarRating()}
@@ -92,7 +105,7 @@ const ProductSummary = () => {
 
         {/* Pricing */}
         <div className="flex items-center gap-3">
-          <p className="text-2xl font-bold">$39.00</p>
+          <p className="text-2xl font-bold">{itemData?.price}</p>
           <p className="text-secondary/80 line-through">$59.00</p>
           <div className="flex justify-center items-center w-16 h-5 bg-red-600 rounded-full">
             <p className="uppercase text-[10px] text-white">Save 33%</p>

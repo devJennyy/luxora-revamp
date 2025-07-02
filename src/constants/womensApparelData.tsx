@@ -21,10 +21,10 @@ export const prices = [
 ];
 export const collections = [
   "Elegant",
-  "Party",
+  "Casual",
+  "Formal",
   "Modest",
   "Cute",
-  "Casual",
   "Sexy",
 ];
 

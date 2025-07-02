@@ -7,8 +7,9 @@ import {
   prices,
   sizes,
   tags,
-  womensApparel,
 } from "@/constants/womensApparelData";
+import { db } from "@/firebase";
+import { onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 import { IoFilterOutline } from "react-icons/io5";
 import { useSearchParams } from "react-router-dom";
@@ -17,7 +18,7 @@ const PRODUCTS_PER_PAGE = 6;
 
 const ProductList = () => {
   const [visibleCount, setVisibleCount] = useState(PRODUCTS_PER_PAGE);
-  const [dataToUse, setDataToUse] = useState<any[]>([]);
+  const [products, setProducts] = useState<any[]>([]);
 
   const handleLoadMore = () => {
     setVisibleCount((prev) => prev + PRODUCTS_PER_PAGE);
@@ -27,17 +28,23 @@ const ProductList = () => {
 
   useEffect(() => {
     const category = searchParams.get("category");
-    if (category === "womens-apparel") {
-      setDataToUse(womensApparel);
-    } else if (category === "womens-shoes") {
-      // setDataToUse("");
+
+    if(category){
+      onValue(ref(db), (snapshot) => {
+        const data = snapshot.val();
+        if (data !== null) {
+          setProducts(data[category]);
+        } else {
+          setProducts([]);
+        }
+      });
     }
   }, [searchParams]);
 
   return (
     <div
       id="womens-apparel"
-      className="relative w-full max-w-[1280px] !mx-auto xl:px-10 lg:px-5 lg:!my-16 !my-8 flex justify-between gap-20"
+      className="relative w-full max-w-[1280px] !mx-auto xl:px-10 lg:px-5 lg:!my-16 !my-5 flex justify-between gap-20"
     >
       <div className="lg:block hidden sticky top-24 self-start">
         <Filter
@@ -58,16 +65,16 @@ const ProductList = () => {
         </div>
 
         <HoverEffect
-          items={dataToUse.slice(0, visibleCount).map((item, idx) => ({
+          items={products.slice(0, visibleCount).map((item, idx) => ({
             ...item,
             link: item.link ?? "#",
             idx,
           }))}
         />
 
-        {visibleCount < dataToUse.length && (
+        {visibleCount < products.length && (
           <button
-            className="sm:px-8 px-5 sm:py-[14px] py-[10px] border hover:bg-primary hover:text-white active:bg-primary active:text-white focus:bg-primary focus:text-white rounded-md w-fit h-fit !mt-8 cursor-pointer transition-default"
+            className="sm:px-8 px-5 sm:py-[14px] py-[10px] border border-primary bg-primary text-white hover:bg-transparent hover:text-primary active:bg-transparent active:text-primary focus:bg-transparent focus:text-primary rounded-md w-fit h-fit !mt-8 cursor-pointer transition-default"
             onClick={handleLoadMore}
           >
             <p className="sm:text-sm text-[12px] font-medium">

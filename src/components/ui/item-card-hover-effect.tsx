@@ -10,13 +10,14 @@ export const HoverEffect = ({
   items: {
     idx: Key | null | undefined;
     id: 1,
-    primaryProduct: string;
+    thumbnail: string;
     productVariants: string[];
     shopName: string;
     itemName: string;
-    price: string;
+    currentPrice: string;
+    previousPrice: string;
     sizes: string[],
-    colors: string[];
+    colors: string[],
     sold: boolean;
     link: string;
   }[];
@@ -56,7 +57,7 @@ export const HoverEffect = ({
               <div className="flex justify-center items-center w-full h-full overflow-hidden">
                 {/* Image */}
                 <img
-                  src={item.primaryProduct}
+                  src={item.thumbnail}
                   className="object-cover object-top w-full h-full rounded-md"
                 />
 
@@ -74,7 +75,7 @@ export const HoverEffect = ({
               <div className="flex flex-col justify-between items-start w-full xl:!mt-5 !mt-3 sm:max-h-21 max-h-16 h-full">
                 <div className=" flex flex-col text-start gap-1">
                   <p className="font-medium sm:text-base text-[12px] text-ellipsis line-clamp-2">{item.itemName}</p>
-                  <p className="sm:text-sm text-[12px]">${parseFloat(item.price).toFixed(2)}</p>
+                  <p className="sm:text-sm text-[12px]">${parseFloat(item.currentPrice).toFixed(2)}</p>
                 </div>
 
                 {/* Color */}

@@ -76,66 +76,67 @@ export const categoryData = [
   {
     categoryImage: "/images/categories/cosmetics.png",
     categoryName: "Cosmetics",
-    href: "/womens-apparel"
+    href: "/product-list?category=cosmetics"
   },
   {
     categoryImage: "/images/categories/home-decor.png",
     categoryName: "Home Decor",
+    href: "/product-list?category=home-decor"
   },
   {
     categoryImage: "/images/categories/appliances.png",
     categoryName: "Appliances",
-    href: "/womens-apparel"
+    href: "/product-list?category=appliances"
   },
   {
     categoryImage: "/images/categories/womens-accessories.png",
     categoryName: "Women's Accessories",
-    href: "/womens-apparel"
+    href: "/product-list?category=womens-accessories"
   },
   {
     categoryImage: "/images/categories/bags.png",
     categoryName: "Bags",
-    href: "/womens-apparel"
+    href: "/product-list?category=bags"
   },
   {
     categoryImage: "/images/categories/mens-apparel.png",
     categoryName: "Men's Apparel",
-    href: "/womens-apparel"
+    href: "/product-list?category=mens-apparel"
   },
   {
     categoryImage: "/images/categories/men-shoes.png",
     categoryName: "Men's Shoes",
-    href: "/womens-apparel"
+    href: "/product-list?category=mens-shoes"
   },
   {
     categoryImage: "/images/categories/gadgets.png",
     categoryName: "Gadgets",
-    href: "/womens-apparel"
+    href: "/product-list?category=gadgets"
   },
   {
     categoryImage: "/images/categories/motors.png",
     categoryName: "Motors",
-    href: "/womens-apparel"
-  },
-  {
-    categoryImage: "/images/categories/home&living.png",
-    categoryName: "Home & Living",
-    href: "/womens-apparel"
-  },
-  {
-    categoryImage: "/images/categories/mens-accessories.png",
-    categoryName: "Men's Accessories",
-    href: "/womens-apparel"
-  },
-  {
-    categoryImage: "/images/categories/mobiles-accessories.png",
-    categoryName: "Mobile Accessories",
-    href: "/womens-apparel"
+    href: "/product-list?category=motors"
   },
   {
     categoryImage: "/images/categories/gaming-console.png",
     categoryName: "Gaming Consoles",
-    href: "/womens-apparel"
+    href: "/product-list?category=gaming-console"
+  },
+  {
+    categoryImage: "/images/categories/mens-accessories.png",
+    categoryName: "Men's Accessories",
+    href: "/product-list?category=mens-accessories"
+  },
+  {
+    categoryImage: "/images/categories/mobiles-accessories.png",
+    categoryName: "Mobile Accessories",
+    href: "/product-list?category=mobile-accessories"
+  },
+  {
+    categoryImage: "/images/categories/home&living.png",
+    categoryName: "Home & Living",
+    href: "/product-list?category=home&living"
   },
 ];
 

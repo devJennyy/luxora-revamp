@@ -121,7 +121,7 @@ const Header = () => {
             />
           </a>
 
-          <div className="border-b w-full sm:h-24 h-20 max-w-[1280px] !mx-auto flex justify-between items-center xl:px-10 sm:px-5 p-4">
+          <div className="border-b w-full sm:h-24 h-[70px] max-w-[1280px] !mx-auto flex justify-between items-center xl:px-10 sm:px-5 p-4">
             <Link to={"/homepage"} className="w-full md:max-w-56 md:flex justify-start hidden">
               <img
                 src="/logo/logo-black.svg"

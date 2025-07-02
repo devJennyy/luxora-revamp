@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useRef, useEffect } from "react";
 import { HoverEffect } from "@/components/ui/item-card-hover-effect";
-import { womensApparel } from "@/constants/womensApparelData";
+import { useSearchParams } from "react-router-dom";
+import { onValue, ref } from "firebase/database";
+import { db } from "@/firebase";
 
 const TABS = [
   { label: "Descriptions", value: "description" },
@@ -15,6 +18,9 @@ const AdditionalInfo = () => {
     left: number;
     width: number;
   }>({ left: 0, width: 0 });
+  const [itemDatas, setItemDatas] = useState<any[]>([]);
+
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     const idx = TABS.findIndex((t) => t.value === activeTab);
@@ -26,6 +32,22 @@ const AdditionalInfo = () => {
       });
     }
   }, [activeTab]);
+
+  useEffect(() => {
+      const productId = parseInt(searchParams.get("id") || '');
+      const category = searchParams.get("category");
+  
+      if (category) {
+        onValue(ref(db), (snapshot) => {
+          const data = snapshot.val();
+          if (data !== null) {
+            setItemDatas(data[category].filter((item: any) => item.id !== productId));
+          } else {
+            setItemDatas([]);
+          }
+        });
+      }
+    }, [searchParams]);
 
   return (
     <section className="flex flex-col justify-start items-start sm:gap-10 gap-8">
@@ -150,11 +172,11 @@ const AdditionalInfo = () => {
       </div>
 
       {/* Related Products */}
-      <div className="flex flex-col xl:gap-8 gap-5 !mt-10">
+      {/* <div className="flex flex-col xl:gap-8 gap-5 !mt-10">
         <p className="lg:text-2xl font-semibold">Related Products</p>
 
          <HoverEffect
-          items={womensApparel.map((item, idx) => ({
+          items={itemDatas.map((item, idx) => ({
             ...item,
             id: 1,
             price: String(item.price),
@@ -162,7 +184,7 @@ const AdditionalInfo = () => {
             idx,
           }))}
         />
-      </div>
+      </div> */}
     </section>
   );
 };
