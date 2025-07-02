@@ -172,7 +172,7 @@ const AdditionalInfo = () => {
       </div>
 
       {/* Related Products */}
-      {/* <div className="flex flex-col xl:gap-8 gap-5 !mt-10">
+      <div className="flex flex-col xl:gap-8 gap-5 !mt-10">
         <p className="lg:text-2xl font-semibold">Related Products</p>
 
          <HoverEffect
@@ -184,7 +184,7 @@ const AdditionalInfo = () => {
             idx,
           }))}
         />
-      </div> */}
+      </div>
     </section>
   );
 };
