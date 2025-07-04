@@ -175,8 +175,31 @@ const AdditionalInfo = () => {
       <div className="flex flex-col xl:gap-8 gap-5 !mt-10">
         <p className="lg:text-2xl font-semibold">Related Products</p>
 
-         <HoverEffect
-          items={itemDatas.map((item, idx) => ({
+        <HoverEffect
+          className="hidden lg:grid md:grid-cols-4 grid-cols-2 w-full"
+          items={itemDatas.slice(0, 4).map((item, idx) => ({
+            ...item,
+            id: 1,
+            price: String(item.price),
+            link: item.link ?? "#",
+            idx,
+          }))}
+        />
+
+        <HoverEffect
+          className="lg:hidden md:grid md:grid-cols-3 grid-cols-2 w-full hidden"
+          items={itemDatas.slice(0, 3).map((item, idx) => ({
+            ...item,
+            id: 1,
+            price: String(item.price),
+            link: item.link ?? "#",
+            idx,
+          }))}
+        />
+
+        <HoverEffect
+          className="md:hidden grid grid-cols-2 w-full"
+          items={itemDatas.slice(0, 2).map((item, idx) => ({
             ...item,
             id: 1,
             price: String(item.price),

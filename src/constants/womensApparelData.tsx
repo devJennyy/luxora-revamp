@@ -1,17 +1,17 @@
 export const sizes = ["S", "M", "L", "XL"];
 export const colors = [
   "bg-black",
-  "bg-white",
+  "bg-whiteish",
   "bg-cream",
   "bg-apricot",
   "bg-brown",
-  "bg-maroon",
+  "bg-khaki",
   "bg-pink",
   "bg-dustyPink",
   "bg-babyBlue",
   "bg-green",
+  "bg-maroon",
   "bg-red",
-  "bg-yellow",
 ];
 export const prices = [
   { label: "All Prices", min: 0, max: Infinity },

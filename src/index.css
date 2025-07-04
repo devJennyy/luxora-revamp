@@ -23,26 +23,15 @@
   --color-dustyPink: #A4625F;
   --color-cream: #EFE4D3;
   --color-brown: #64432E;
+  --color-khaki: #C3B091;
   --color-babyBlue: #AEE7F8;
   --color-green: #228B22;
   --color-red: #FF0000;
   --color-maroon: #800000;
   --color-yellow: #FFD700;
   --color-apricot: #D2C7B6;
-
-
-  --color-item-lightBeige: #EBE6DB;
-  --color-item-skyBlue: #B1C5D4;
-  --color-item-rose: #C6AEC7;
-  --color-item-earthBrown: #836953;
-  --color-item-brightBlue: #6CB9FF;
-  --color-item-pink: #FFD1DC;
-  --color-item-mintGreen: #C1E1C1;
-  --color-item-blush: #C6AEC7;
-  --color-item-navyBlue: #063E66;
-  --color-item-steelBlue: #8DB4D2;
-  --color-item-gold: #FFD700;
-  --color-item-coral: #FF6C6C;
+  --color-silver: #C0C0C0;
+  --color-whiteish: #F5F5F5;
 }
 
 @theme inline {

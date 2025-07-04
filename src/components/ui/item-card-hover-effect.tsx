@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
-
 import { useState, type Key } from "react";
+import { useLocation } from "react-router-dom";
 
 export const HoverEffect = ({
   items,
@@ -24,6 +24,8 @@ export const HoverEffect = ({
   className?: string;
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const location = useLocation();
+  const isProductOverview = location.pathname.includes('product-overview');
 
   return (
     <div className={cn("grid md:grid-cols-3 grid-cols-2 w-full", className)}>
@@ -53,7 +55,7 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           <Card>
-            <div className="flex flex-col justify-center items-between w-full xl:h-[400px] sm:h-[380px] h-[250px] transition-slow xl:p-4 sm:p-3 p-[10px]">
+            <div className={isProductOverview? "flex flex-col justify-center items-between w-full xl:h-[400px] md:h-[340px] sm:h-[380px] h-[250px] transition-slow xl:p-4 sm:p-3 p-[10px]" : "flex flex-col justify-center items-between w-full xl:h-[400px] sm:h-[380px] h-[250px] transition-slow xl:p-4 sm:p-3 p-[10px]"}>
               <div className="flex justify-center items-center w-full h-full overflow-hidden">
                 {/* Image */}
                 <img
