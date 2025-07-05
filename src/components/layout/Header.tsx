@@ -32,7 +32,9 @@ const Header = () => {
   const isCustomPage =
   location.pathname === "/homepage" ||
   location.pathname === "/product-list" ||
-  location.pathname === "/product-overview";
+  location.pathname === "/product-overview" ||
+  location.pathname === "/luxora-picks" ||
+  location.pathname === "/flash-deals";
 
 
   return (

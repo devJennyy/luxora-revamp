@@ -9,6 +9,7 @@ import Faqs from "./pages/Faqs";
 import HelpCenter from "./pages/HelpCenter";
 import ProductList from "./pages/ProductList";
 import ProductOverview from "./pages/ProductOverview";
+import LuxoraPicks from "./pages/LuxoraPicks";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/help-center" element={<HelpCenter />} />
         <Route path="/product-list" element={<ProductList />} />
         <Route path="/product-overview" element={<ProductOverview />} />
+        <Route path="/luxora-picks" element={<LuxoraPicks />} />
       </Routes>
       <Footer />
     </Router>

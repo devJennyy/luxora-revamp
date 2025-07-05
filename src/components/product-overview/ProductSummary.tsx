@@ -13,12 +13,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { IoMdHeart } from "react-icons/io";
 import { IoHeartOutline } from "react-icons/io5";
-import { womensApparel } from "@/constants/womensApparelData";
 import { onValue, ref } from "firebase/database";
 import { db } from "@/firebase";
 
 const ProductSummary = () => {
   const [count, setCount] = useState(1);
+  const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
   const rating = 4;
   const getStarRating = () => {
     const stars: JSX.Element[] = [];
@@ -36,14 +36,16 @@ const ProductSummary = () => {
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    const productId = parseInt(searchParams.get("id") || '');
+    const productId = parseInt(searchParams.get("id") || "");
     const category = searchParams.get("category");
 
     if (category && productId) {
       onValue(ref(db), (snapshot) => {
         const data = snapshot.val();
         if (data !== null) {
-          setItemData(data[category].find((item: any) => item.id === productId));
+          setItemData(
+            data[category].find((item: any) => item.id === productId)
+          );
         } else {
           setItemData(null);
         }
@@ -56,30 +58,33 @@ const ProductSummary = () => {
       {/* Media */}
       <div className="flex xl:flex-row flex-col-reverse sm:h-[35rem] h-[20rem] sm:gap-4 gap-2 overflow-hidden w-full">
         <div className="flex xl:flex-col flex-row justify-between h-full gap-1">
-          {
-            itemData.productVariants?.map((selection: any, index: number) => (
-              <button
-                key={index}
-                className={`${
-                  index === 0
-                    ? "border-2 border-primary"
-                    : "border-2 border-white hover:border-primary active:border-primary focus:border-primary transition-default"
-                } p-1 w-full h-full border-2 border-primary cursor-pointer`}
-              >
-                <img
-                  src={selection}
-                  alt={itemData.primaryProduct}
-                  className="w-full xl:w-20 sm:h-[97px] h-[60px] object-cover border"
-                />
-              </button>
-            ))
-          }
+          {itemData.productVariants?.map((selection: any, index: number) => (
+            <button
+              key={index}
+              onClick={() => setSelectedVariantIndex(index)} // <-- Set selected index
+              className={`${
+                selectedVariantIndex === index
+                  ? "border-2 border-primary"
+                  : "border-2 border-white hover:border-primary active:border-primary focus:border-primary transition-default"
+              } p-1 w-full h-full border-2 border-primary cursor-pointer`}
+            >
+              <img
+                src={selection}
+                alt={itemData.primaryProduct}
+                className="w-full xl:w-20 sm:h-[97px] h-[60px] object-cover border"
+              />
+            </button>
+          ))}
         </div>
 
         <div className="w-full xl:max-w-[500px] h-full border ">
           <img
-            src={itemData?.thumbnail}
+            src={
+              itemData.productVariants?.[selectedVariantIndex] ||
+              itemData?.thumbnail
+            }
             className="w-full h-full object-cover"
+            alt={itemData?.itemName}
           />
         </div>
       </div>
@@ -97,7 +102,7 @@ const ProductSummary = () => {
           <div className="flex items-center sm:gap-2 gap-1 !mt-2">
             {getStarRating()}
             <div className="flex gap-2 sm:text-sm text-[12px] text-secondary/80 font-normal sm:!ml-0 !ml-1">
-              <p>4.0</p>
+              <p>4.5</p>
               <p>(121 Reviews)</p>
             </div>
           </div>
@@ -105,10 +110,12 @@ const ProductSummary = () => {
 
         {/* Pricing */}
         <div className="flex items-center gap-3">
-          <p className="text-2xl font-bold">{itemData?.price}</p>
-          <p className="text-secondary/80 line-through">$59.00</p>
+          <p className="text-2xl font-bold">{itemData?.currentPrice}</p>
+          <p className="text-secondary/80 line-through">
+            {itemData?.previousPrice}
+          </p>
           <div className="flex justify-center items-center w-16 h-5 bg-red-600 rounded-full">
-            <p className="uppercase text-[10px] text-white">Save 33%</p>
+            <p className="uppercase text-[10px] text-white">Save 22%</p>
           </div>
         </div>
 
@@ -135,20 +142,20 @@ const ProductSummary = () => {
         <div className="flex flex-col gap-3">
           <p className="sm:text-base text-sm font-medium">Size</p>
           <div className="flex sm:gap-3 gap-2 sm:text-sm text-[12px]">
-            {womensApparel?.map((item, itemIndex) =>
-              item.sizes?.map((sizes, index) => (
+            {itemData?.sizes?.map((sizes: any, index: any) => {
+              return (
                 <button
-                  key={`${itemIndex}-${index}`}
+                  key={index}
                   className={`${
                     index === 0
-                      ? "sm:w-11 sm:h-11 w-10 h-10 bg-primary text-white"
-                      : "sm:w-11 sm:h-11 w-10 h-10 border hover:bg-primary hover:text-white transition-all"
+                      ? "w-fit px-4 sm:h-11 h-10 bg-primary text-white"
+                      : "w-fit px-4 sm:h-11 h-10 border hover:bg-primary hover:text-white transition-all"
                   } flex justify-center items-center rounded-md`}
                 >
                   {sizes}
                 </button>
-              ))
-            )}
+              );
+            })}
           </div>
         </div>
 
@@ -156,18 +163,18 @@ const ProductSummary = () => {
         <div className="flex flex-col gap-3">
           <p className="sm:text-base text-sm font-medium">Color</p>
           <div className="flex justify-start items-center gap-3">
-            {womensApparel?.map((item, itemIndex) =>
-              item.colors?.map((color, index) => (
+            {itemData?.colors?.map((item:any, index:any) => {
+              return (
                 <button
-                  key={`${itemIndex}-${index}`}
-                  className={`${color} ${
+                  key={index}
+                  className={`${item} ${
                     index == 0
                       ? `w-4 h-4 outline outline-black  outline-offset-2`
                       : `w-5 h-5 outline outline-gray-lightGray`
                   } rounded-full cursor-pointer`}
                 ></button>
-              ))
-            )}
+              )
+            })}
           </div>
         </div>
 

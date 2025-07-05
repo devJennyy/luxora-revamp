@@ -144,9 +144,6 @@ export const flashDealsData = [
   { imageSrc: "/images/flashdeals/flashdeals.png" },
   { imageSrc: "/images/flashdeals/flashdeals-two.png" },
   { imageSrc: "/images/flashdeals/flashdeals-three.png" },
-  { imageSrc: "/images/flashdeals/flashdeals.png" },
-  { imageSrc: "/images/flashdeals/flashdeals-two.png" },
-  { imageSrc: "/images/flashdeals/flashdeals-three.png" },
 ];
 
 export const benefits = [

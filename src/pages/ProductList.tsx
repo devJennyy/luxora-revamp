@@ -78,7 +78,7 @@ const ProductList = () => {
             onClick={handleLoadMore}
           >
             <p className="sm:text-sm text-[12px] font-medium">
-              Load More Products
+              View More
             </p>
           </button>
         )}

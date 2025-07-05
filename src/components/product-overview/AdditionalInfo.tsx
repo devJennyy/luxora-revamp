@@ -7,7 +7,6 @@ import { db } from "@/firebase";
 
 const TABS = [
   { label: "Descriptions", value: "description" },
-  { label: "Additional Info", value: "additional" },
   { label: "Reviews", value: "reviews" },
 ];
 
@@ -77,99 +76,71 @@ const AdditionalInfo = () => {
       </div>
 
       <div className="flex flex-col gap-7 text-justify text-sm w-full">
-        {activeTab === "description" && (
-          <>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut
-              libero non metus fermentum suscipit nec nec purus. Phasellus at
-              sapien velit. Vivamus nec purus nec orci accumsan pharetra.
-              Curabitur vel tristique urna. Sed ut ligula vel mauris rhoncus
-              dictum. Vivamus ac turpis nec mauris dignissim lobortis non in
-              ipsum. Suspendisse auctor risus quis velit bibendum, eget
-              convallis turpis ultricies. Integer in aliquam metus. Etiam at
-              nisi quis arcu tincidunt posuere. Cras tincidunt ullamcorper
-              massa.
-            </p>
-            <p>
-              A voluptas aperiam ut iste consequatur qui voluptas quos non omnis
-              ullam. Est sint quia ut illum galisum aut velit ratione vel quae
-              blanditiis eos aliquam ullam. Aut laboriosam dolores in aperiam
-              quia aut aperiam eaque et quod soluta qui quaerat dolorum ut
-              explicabo sint.
-            </p>
-          </>
-        )}
-        {activeTab === "additional" && (
-          <div className="w-full flex flex-col gap-3">
-            <div className="flex gap-6">
-              <p className="w-32 font-medium text-muted">Product by</p>
-              <p className="flex-1">BizChic</p>
-            </div>
-            <div className="flex gap-6">
-              <p className="w-32 font-medium text-muted">Material</p>
-              <p className="flex-1">100% Cotton</p>
-            </div>
-            <div className="flex gap-6">
-              <p className="w-32 font-medium text-muted">Care</p>
-              <p className="flex-1">Machine wash cold, tumble dry low</p>
-            </div>
-            <div className="flex gap-6">
-              <p className="w-32 font-medium text-muted">Fit Size</p>
-              <p className="flex-1">Regular</p>
-            </div>
-            <div className="flex gap-6">
-              <p className="w-32 font-medium text-muted">Country</p>
-              <p className="flex-1">Made in Somewhere</p>
-            </div>
-            <div className="flex gap-6">
-              <p className="w-32 font-medium text-muted">P.S</p>
-              <p className="flex-1">This is only sample text</p>
-            </div>
+  {activeTab === "description" && (
+    <>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut
+        libero non metus fermentum suscipit nec nec purus. Phasellus at
+        sapien velit. Vivamus nec purus nec orci accumsan pharetra.
+        Curabitur vel tristique urna. Sed ut ligula vel mauris rhoncus
+        dictum. Vivamus ac turpis nec mauris dignissim lobortis non in
+        ipsum. Suspendisse auctor risus quis velit bibendum, eget
+        convallis turpis ultricies. Integer in aliquam metus. Etiam at
+        nisi quis arcu tincidunt posuere. Cras tincidunt ullamcorper
+        massa.
+      </p>
+      <p>
+        A voluptas aperiam ut iste consequatur qui voluptas quos non omnis
+        ullam. Est sint quia ut illum galisum aut velit ratione vel quae
+        blanditiis eos aliquam ullam. Aut laboriosam dolores in aperiam
+        quia aut aperiam eaque et quod soluta qui quaerat dolorum ut
+        explicabo sint.
+      </p>
+    </>
+  )}
+  {activeTab === "reviews" && (
+    <div className="flex flex-col sm:gap-6 gap-4 w-full">
+      <div className="flex items-center gap-3">
+        <img
+          src="https://randomuser.me/api/portraits/women/44.jpg"
+          alt="Jane Doe"
+          className="w-10 h-10 rounded-full object-cover"
+        />
+        <div>
+          <p className="font-semibold">Jane Doe</p>
+          <div className="flex items-center gap-1 text-yellow-400 text-xs">
+            {"★★★★★"}
+            <span className="text-muted ml-2 text-xs">2 days ago</span>
           </div>
-        )}
-        {activeTab === "reviews" && (
-          <div className="flex flex-col sm:gap-6 gap-4 w-full">
-            <div className="flex items-center gap-3">
-              <img
-                src="https://randomuser.me/api/portraits/women/44.jpg"
-                alt="Jane Doe"
-                className="w-10 h-10 rounded-full object-cover"
-              />
-              <div>
-                <p className="font-semibold">Jane Doe</p>
-                <div className="flex items-center gap-1 text-yellow-400 text-xs">
-                  {"★★★★★"}
-                  <span className="text-muted ml-2 text-xs">2 days ago</span>
-                </div>
-              </div>
-            </div>
-            <p className="text-sm text-justify">
-              Love this product! The quality is amazing and it fits perfectly.
-              Will definitely buy again.
-            </p>
-            <hr className="my-2 border-muted/20" />
-
-            <div className="flex items-center gap-3">
-              <img
-                src="https://randomuser.me/api/portraits/men/32.jpg"
-                alt="John Smith"
-                className="w-10 h-10 rounded-full object-cover"
-              />
-              <div>
-                <p className="font-semibold">John Smith</p>
-                <div className="flex items-center gap-1 text-yellow-400 text-xs">
-                  {"★★★★☆"}
-                  <span className="text-muted ml-2 text-xs">1 week ago</span>
-                </div>
-              </div>
-            </div>
-            <p className="text-sm text-justify">
-              Good value for the price. Shipping was fast and the item matched
-              the description.
-            </p>
-          </div>
-        )}
+        </div>
       </div>
+      <p className="text-sm text-justify">
+        Love this product! The quality is amazing and it fits perfectly.
+        Will definitely buy again.
+      </p>
+      <hr className="my-2 border-muted/20" />
+
+      <div className="flex items-center gap-3">
+        <img
+          src="https://randomuser.me/api/portraits/men/32.jpg"
+          alt="John Smith"
+          className="w-10 h-10 rounded-full object-cover"
+        />
+        <div>
+          <p className="font-semibold">John Smith</p>
+          <div className="flex items-center gap-1 text-yellow-400 text-xs">
+            {"★★★★☆"}
+            <span className="text-muted ml-2 text-xs">1 week ago</span>
+          </div>
+        </div>
+      </div>
+      <p className="text-sm text-justify">
+        Good value for the price. Shipping was fast and the item matched
+        the description.
+      </p>
+    </div>
+  )}
+</div>
 
       {/* Related Products */}
       <div className="flex flex-col xl:gap-8 gap-5 !mt-10">

@@ -9,7 +9,7 @@ import {
 
 const Hero = () => {
   return (
-    <section className="w-full flex flex-col sm:gap-16 gap-8">
+    <a className="w-full flex flex-col sm:gap-16 gap-8">
       <div className="w-full flex lg:flex-row flex-col-reverse gap-2">
         <div className="flex lg:flex-col flex-row gap-2 xl:max-w-[390px] lg:max-w-[340px] w-full max-w-full">
           <Swiper
@@ -27,11 +27,13 @@ const Hero = () => {
           >
             {discountBannerOne.map((src, index) => (
               <SwiperSlide key={index}>
-                <img
-                  src={src}
-                  alt={`Hero ${index + 1}`}
-                  className="w-full h-full object-cover rounded-md"
-                />
+                <a href="/luxora-picks?category=electronics">
+                  <img
+                    src={src}
+                    alt={`Hero ${index + 1}`}
+                    className="w-full h-full object-cover rounded-md"
+                  />
+                </a>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -50,11 +52,13 @@ const Hero = () => {
           >
             {discountBannerTwo.map((src, index) => (
               <SwiperSlide key={index}>
-                <img
-                  src={src}
-                  alt={`Hero ${index + 1}`}
-                  className="w-full h-full object-cover rounded-md"
-                />
+                <a href="/luxora-picks?category=essentials">
+                  <img
+                    src={src}
+                    alt={`Hero ${index + 1}`}
+                    className="w-full h-full object-cover rounded-md"
+                  />
+                </a>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -75,11 +79,13 @@ const Hero = () => {
         >
           {promoBanner.map((src, index) => (
             <SwiperSlide key={index}>
-              <img
-                src={src}
-                alt={`Hero ${index + 1}`}
-                className="w-full h-full object-cover rounded-md"
-              />
+              <a href="/luxora-picks?category=fashion">
+                <img
+                  src={src}
+                  alt={`Hero ${index + 1}`}
+                  className="w-full h-full object-cover rounded-md"
+                />
+              </a>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -110,7 +116,7 @@ const Hero = () => {
           ))}
         </div>
       </div>
-    </section>
+    </a>
   );
 };
 

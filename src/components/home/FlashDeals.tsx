@@ -1,7 +1,7 @@
-import { flashDealsData } from "@/constants/data";
 import SectionHeading from "../shared/SectionHeading";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import { flashDealsData } from "@/constants/data";
 
 const FlashDeals = () => {
   return (
@@ -35,16 +35,18 @@ const FlashDeals = () => {
           disableOnInteraction: false,
           waitForTransition: true,
         }}
-        speed={1000}
+        speed={800}
         className="w-full"
       >
-        {flashDealsData?.map((item, index) => (
+        {[...flashDealsData, ...flashDealsData].map((item, index) => (
           <SwiperSlide key={index}>
-            <img
-              src={item.imageSrc}
-              alt="Flash Deals"
-              className="rounded-md w-full h-full object-contain"
-            />
+            <a href="/luxora-picks?category=smartphones">
+              <img
+                src={item.imageSrc}
+                alt="Flash Deals"
+                className="rounded-md w-full h-full object-contain"
+              />
+            </a>
           </SwiperSlide>
         ))}
       </Swiper>
