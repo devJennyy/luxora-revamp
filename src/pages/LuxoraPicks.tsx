@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { HoverEffect } from "@/components/ui/item-card-hover-effect";
+import LoadingAnimation from "@/components/ui/loading";
 import { db } from "@/firebase";
 import { onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
@@ -21,7 +22,15 @@ const LuxoraPicks = () => {
     const categoryParam = searchParams.get("category");
 
     const categoryMap: Record<string, string[]> = {
-      fashion: ["mens-apparel", "womens-apparel", "womens-shoes", "mens-shoes", "bags", "mens-accessories", "motors"],
+      fashion: [
+        "mens-apparel",
+        "womens-apparel",
+        "womens-shoes",
+        "mens-shoes",
+        "bags",
+        "mens-accessories",
+        "motors",
+      ],
       electronics: ["gadgets", "gaming-console"],
       essentials: ["home-living", "home-decor"],
       smartphones: ["smartphones"],
@@ -47,28 +56,41 @@ const LuxoraPicks = () => {
     });
   }, [searchParams]);
 
-  return (
-    <section className="w-full max-w-[1280px] !mx-auto flex flex-col justify-center items-center gap-10 xl:px-10 sm:px-5 px-4 sm:!my-16 !my-8">
-      <HoverEffect
-        className="grid md:grid-cols-4 grid-cols-2 w-full"
-        items={products.slice(0, visibleCount).map((item, idx) => ({
-          ...item,
-          link: item.link ?? "#",
-          idx,
-        }))}
-      />
+  const [isLoading, setIsLoading] = useState(true);
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 1500);
 
-      {visibleCount < products.length && (
-        <button
-          className="sm:px-8 px-5 sm:py-[14px] py-[10px] border border-primary bg-primary text-white hover:bg-transparent hover:text-primary active:bg-transparent active:text-primary rounded-md w-fit h-fit !mt-8 cursor-pointer transition-default"
-          onClick={handleLoadMore}
-        >
-          <p className="sm:text-sm text-[12px] font-medium">
-            Load More Products
-          </p>
-        </button>
-      )}
-    </section>
+  return (
+    <main>
+      {isLoading && <LoadingAnimation />}
+
+      <section
+        className={`transition-opacity duration-500 ${
+          isLoading ? "opacity-0" : "opacity-100"
+        } w-full max-w-[1280px] !mx-auto flex flex-col justify-center items-center gap-10 xl:px-10 sm:px-5 px-4 sm:!my-16 !my-8`}
+      >
+        <HoverEffect
+          className="grid md:grid-cols-4 grid-cols-2 w-full"
+          items={products.slice(0, visibleCount).map((item, idx) => ({
+            ...item,
+            link: item.link ?? "#",
+            idx,
+          }))}
+        />
+
+        {visibleCount < products.length && (
+          <button
+            className="sm:px-8 px-5 sm:py-[14px] py-[10px] border border-primary bg-primary text-white hover:bg-transparent hover:text-primary active:bg-transparent active:text-primary rounded-md w-fit h-fit !mt-8 cursor-pointer transition-default"
+            onClick={handleLoadMore}
+          >
+            <p className="sm:text-sm text-[12px] font-medium">
+              Load More Products
+            </p>
+          </button>
+        )}
+      </section>
+    </main>
   );
 };
 

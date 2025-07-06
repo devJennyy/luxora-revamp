@@ -61,7 +61,7 @@ const ProductSummary = () => {
           {itemData.productVariants?.map((selection: any, index: number) => (
             <button
               key={index}
-              onClick={() => setSelectedVariantIndex(index)} // <-- Set selected index
+              onClick={() => setSelectedVariantIndex(index)}
               className={`${
                 selectedVariantIndex === index
                   ? "border-2 border-primary"
@@ -163,7 +163,7 @@ const ProductSummary = () => {
         <div className="flex flex-col gap-3">
           <p className="sm:text-base text-sm font-medium">Color</p>
           <div className="flex justify-start items-center gap-3">
-            {itemData?.colors?.map((item:any, index:any) => {
+            {itemData?.colors?.map((item: any, index: any) => {
               return (
                 <button
                   key={index}
@@ -173,7 +173,7 @@ const ProductSummary = () => {
                       : `w-5 h-5 outline outline-gray-lightGray`
                   } rounded-full cursor-pointer`}
                 ></button>
-              )
+              );
             })}
           </div>
         </div>

@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Filter from "@/components/shared/Filter";
 import { HoverEffect } from "@/components/ui/item-card-hover-effect";
+import LoadingAnimation from "@/components/ui/loading";
 import {
   collections,
   colors,
@@ -29,7 +30,7 @@ const ProductList = () => {
   useEffect(() => {
     const category = searchParams.get("category");
 
-    if(category){
+    if (category) {
       onValue(ref(db), (snapshot) => {
         const data = snapshot.val();
         if (data !== null) {
@@ -41,49 +42,58 @@ const ProductList = () => {
     }
   }, [searchParams]);
 
-  return (
-    <div
-      id="womens-apparel"
-      className="relative w-full max-w-[1280px] !mx-auto xl:px-10 lg:px-5 lg:!my-16 !my-5 flex justify-between gap-20"
-    >
-      <div className="lg:block hidden sticky top-24 self-start">
-        <Filter
-          sizes={sizes}
-          colors={colors}
-          prices={prices}
-          collections={collections}
-          tags={tags}
-        />
-      </div>
+  const [isLoading, setIsLoading] = useState(true);
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 1500);
 
-      <div className="w-full h-full flex flex-col items-center sm:gap-5 gap-2 lg:px-0 px-2">
-        <div className="w-full flex justify-between items-center lg:px-0 px-2 sticky top-0 z-20 bg-white lg:static">
-          <p className="text-lg font-semibold">Best Selling</p>
-          <div className="border rounded-sm p-2 bg-primary lg:hidden">
-            <IoFilterOutline className="text-white sm:text-base text-sm" />
-          </div>
+  return (
+    <main id="womens-apparel">
+      {isLoading && <LoadingAnimation />}
+
+      <section
+        className={`transition-opacity duration-500 ${
+          isLoading ? "opacity-0" : "opacity-100"
+        } relative w-full max-w-[1280px] !mx-auto xl:px-10 lg:px-5 lg:!my-16 !my-5 flex justify-between gap-20`}
+      >
+        <div className="lg:block hidden sticky top-24 self-start">
+          <Filter
+            sizes={sizes}
+            colors={colors}
+            prices={prices}
+            collections={collections}
+            tags={tags}
+          />
         </div>
 
-        <HoverEffect
-          items={products.slice(0, visibleCount).map((item, idx) => ({
-            ...item,
-            link: item.link ?? "#",
-            idx,
-          }))}
-        />
+        <div className="w-full h-full flex flex-col items-center sm:gap-5 gap-2 lg:px-0 px-2">
+          <div className="w-full flex justify-between items-center lg:px-0 px-2 sticky top-0 z-20 bg-white lg:static">
+            <p className="text-lg font-semibold">Best Selling</p>
+            <div className="border rounded-sm p-2 bg-primary lg:hidden">
+              <IoFilterOutline className="text-white sm:text-base text-sm" />
+            </div>
+          </div>
 
-        {visibleCount < products.length && (
-          <button
-            className="sm:px-8 px-5 sm:py-[14px] py-[10px] border border-primary bg-primary text-white hover:bg-transparent hover:text-primary active:bg-transparent active:text-primary focus:bg-transparent focus:text-primary rounded-md w-fit h-fit !mt-8 cursor-pointer transition-default"
-            onClick={handleLoadMore}
-          >
-            <p className="sm:text-sm text-[12px] font-medium">
-              View More
-            </p>
-          </button>
-        )}
-      </div>
-    </div>
+          <HoverEffect
+            items={products.slice(0, visibleCount).map((item, idx) => ({
+              ...item,
+              link: item.link ?? "#",
+              idx,
+            }))}
+          />
+
+          {visibleCount < products.length && (
+            <button
+              className="sm:px-8 px-5 sm:py-[14px] py-[10px] border border-primary bg-primary text-white hover:bg-transparent hover:text-primary active:bg-transparent active:text-primary focus:bg-transparent focus:text-primary rounded-md w-fit h-fit !mt-8 cursor-pointer transition-default"
+              onClick={handleLoadMore}
+            >
+              <p className="sm:text-sm text-[12px] font-medium">View More</p>
+            </button>
+          )}
+        </div>
+      </section>
+      {isLoading && <LoadingAnimation />}
+    </main>
   );
 };
 
