@@ -1,6 +1,7 @@
 import { BsBagCheckFill } from "react-icons/bs";
 import { IoMdGlobe } from "react-icons/io";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { TiArrowBack } from "react-icons/ti";
 import {
   Select,
   SelectContent,
@@ -9,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LuMessagesSquare, LuSearch } from "react-icons/lu";
 import { BiSolidHelpCircle } from "react-icons/bi";
 import { useLocation } from "react-router-dom";
@@ -29,13 +30,14 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 const Header = () => {
   const location = useLocation();
-  const isCustomPage =
-  location.pathname === "/homepage" ||
-  location.pathname === "/product-list" ||
-  location.pathname === "/product-overview" ||
-  location.pathname === "/luxora-picks" ||
-  location.pathname === "/flash-deals";
+  const navigate = useNavigate();
 
+  const isCustomPage =
+    location.pathname === "/homepage" ||
+    location.pathname === "/product-list" ||
+    location.pathname === "/product-overview" ||
+    location.pathname === "/luxora-picks" ||
+    location.pathname === "/flash-deals";
 
   return (
     <div className="w-full text-white">
@@ -115,7 +117,7 @@ const Header = () => {
       {/* Main Header */}
       {isCustomPage ? (
         <>
-          <a href="/homepage" className="h-8 md:hidden !mt-5 block">
+          <a href="/homepage" className="h-8 md:hidden sm:!mt-6 !mt-5 block">
             <img
               src="/logo/logo-black.svg"
               alt="Luxora logo"
@@ -124,13 +126,25 @@ const Header = () => {
           </a>
 
           <div className="border-b w-full sm:h-24 h-[70px] max-w-[1280px] !mx-auto flex justify-between items-center xl:px-10 sm:px-5 p-4">
-            <Link to={"/homepage"} className="w-full md:max-w-56 md:flex justify-start hidden">
+            <Link
+              to={"/homepage"}
+              className="w-full md:max-w-56 md:flex justify-start hidden"
+            >
               <img
                 src="/logo/logo-black.svg"
                 alt="Luxora logo"
                 className="w-fit xl:h-9 md:h-8 h-7 object-contain"
               />
             </Link>
+
+            {location.pathname !== "/homepage" && (
+              <button
+                className="md:hidden !md:mr-0 !mr-3 flex justify-center items-center md:w-11 md:h-11 sm:w-10 sm:h-10 w-9 h-9 bg-primary rounded-md sm:!p-[10px] !p-[9px] cursor-pointer"
+                onClick={() => navigate(-1)}
+              >
+                <TiArrowBack size={18} />
+              </button>
+            )}
 
             {/* Search Bar */}
             <div className="flex justify-end items-center w-full md:max-w-[25rem] transition-slow md:h-11 sm:h-10 h-9 !md:mr-0 !mr-3 relative">
@@ -304,10 +318,14 @@ const Header = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="2xl:!mr-20 xl:!mr-10 !mr-5">
                   <Link to={"/login"}>
-                    <DropdownMenuItem className="sm:text-sm text-[12px]">Login</DropdownMenuItem>
+                    <DropdownMenuItem className="sm:text-sm text-[12px]">
+                      Login
+                    </DropdownMenuItem>
                   </Link>
                   <Link to={"/signup"}>
-                    <DropdownMenuItem className="sm:text-sm text-[12px]">Signup</DropdownMenuItem>
+                    <DropdownMenuItem className="sm:text-sm text-[12px]">
+                      Signup
+                    </DropdownMenuItem>
                   </Link>
                 </DropdownMenuContent>
               </DropdownMenu>

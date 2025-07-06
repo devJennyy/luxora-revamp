@@ -106,7 +106,7 @@ const ProductSummary = () => {
               itemData.productVariants?.[selectedVariantIndex] ||
               itemData?.thumbnail
             }
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover p-1"
             alt={itemData?.itemName}
             onClick={handleOpenPreview}
           />
