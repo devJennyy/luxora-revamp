@@ -172,7 +172,7 @@ export const discoveryProducts = [
     previousPrice: 194.0,
     productName: "Fujifilm Instax mini 8",
     totalSold: 1.2,
-    link: "",
+    link: "/product-overview?category=discovery&id=1",
   },
   {
     image: "/images/discovery/menshirt.png",
@@ -180,7 +180,7 @@ export const discoveryProducts = [
     previousPrice: 34.3,
     productName: "Polo Shirt for Men",
     totalSold: 7.8,
-    link: "",
+    link: "/product-overview?category=discovery&id=2",
   },
   {
     image: "/images/discovery/bag.png",
@@ -188,7 +188,7 @@ export const discoveryProducts = [
     previousPrice: 31.83,
     productName: "Leather Backpack",
     totalSold: 1.3,
-    link: "",
+    link: "/product-overview?category=discovery&id=3",
   },
   {
     image: "/images/discovery/chair.png",
@@ -196,7 +196,7 @@ export const discoveryProducts = [
     previousPrice: 75,
     productName: "Pillow Grey Chair",
     totalSold: 2.7,
-    link: "",
+    link: "/product-overview?category=discovery&id=4",
   },
   {
     image: "/images/discovery/headphone.png",
@@ -204,7 +204,7 @@ export const discoveryProducts = [
     previousPrice: 100.0,
     productName: "Wireless Headphone",
     totalSold: 22,
-    link: "",
+    link: "/product-overview?category=discovery&id=5",
   },
   {
     image: "/images/discovery/dress.png",
@@ -212,23 +212,23 @@ export const discoveryProducts = [
     previousPrice: 17.15,
     productName: "Corset Mini Dress",
     totalSold: 89,
-    link: "",
+    link: "/product-overview?category=discovery&id=6",
   },
   {
     image: "/images/discovery/sandals.png",
     currentPrice: 20.99,
     previousPrice: 34.3,
-    productName: "Women's Heels",
+    productName: "Pointed Heels",
     totalSold: 1.5,
-    link: "",
+    link: "/product-overview?category=discovery&id=7",
   },
   {
     image: "/images/discovery/plushtoy.png",
-    currentPrice: 11.82,
-    previousPrice: 21.44,
+    currentPrice: 7.94,
+    previousPrice: 10.99,
     productName: "Plush Toy",
     totalSold: 55,
-    link: "",
+    link: "/product-overview?category=discovery&id=8",
   },
   {
     image: "/images/discovery/home-decor.png",
@@ -236,14 +236,15 @@ export const discoveryProducts = [
     previousPrice: 27.73,
     productName: "Artificial Flower",
     totalSold: 18.6,
+    link: "/product-overview?category=discovery&id=9"
   },
   {
     image: "/images/discovery/nike.png",
     currentPrice: 84.98,
     previousPrice: 104.98,
-    productName: "Men's Converse",
+    productName: "Chuck 70",
     totalSold: 6.8,
-    link: "",
+    link: "/product-overview?category=discovery&id=10",
   },
 ];
 

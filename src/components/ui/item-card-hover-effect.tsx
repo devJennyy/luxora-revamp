@@ -65,7 +65,7 @@ export const HoverEffect = ({
 
                 {/* Sold */}
                 {item.sold && (
-                  <div className="flex flex-col justify-center items-center text-center sm:w-14 sm:h-16 w-12 h-12 p-1 rounded-full bg-[#B1B1B1]/70 absolute">
+                  <div className="flex flex-col justify-center items-center text-center sm:w-16 sm:h-16 w-12 h-12 p-1 rounded-full bg-[#B1B1B1]/70 absolute">
                     <p className="text-white sm:text-sm text-[11px] font-medium sm:leading-4 leading-3">
                       Sold out
                     </p>

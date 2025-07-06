@@ -22,7 +22,7 @@ const LuxoraPicks = () => {
 
     const categoryMap: Record<string, string[]> = {
       fashion: ["mens-apparel", "womens-apparel", "womens-shoes", "mens-shoes", "bags", "mens-accessories", "motors"],
-      electronics: ["tech-gadgets", "smartphones", "gaming-console"],
+      electronics: ["gadgets", "gaming-console"],
       essentials: ["home-living", "home-decor"],
       smartphones: ["smartphones"],
     };
