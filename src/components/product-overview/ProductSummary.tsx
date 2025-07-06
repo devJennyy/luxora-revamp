@@ -53,10 +53,33 @@ const ProductSummary = () => {
     }
   }, [searchParams]);
 
+  const [previewImage, setPreviewImage] = useState<{ src: string } | null>(
+    null
+  );
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleOpenPreview = () => {
+    setPreviewImage({
+      src:
+        itemData.productVariants?.[selectedVariantIndex] || itemData?.thumbnail,
+    });
+
+    setTimeout(() => {
+      setIsVisible(true);
+    }, 10);
+  };
+
+  const handleClosePreview = () => {
+    setIsVisible(false);
+    setTimeout(() => setPreviewImage(null), 300);
+  };
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
   return (
     <section className="w-full flex md:flex-row flex-col justify-between xl:gap-0 sm:gap-10 gap-8">
       {/* Media */}
-      <div className="flex xl:flex-row flex-col-reverse sm:h-[35rem] h-[20rem] sm:gap-4 gap-2 overflow-hidden w-full">
+      <div className="flex xl:flex-row flex-col-reverse sm:h-[35rem] sm:gap-4 gap-2 overflow-hidden w-full">
         <div className="flex xl:flex-col flex-row justify-between h-full gap-1">
           {itemData.productVariants?.map((selection: any, index: number) => (
             <button
@@ -77,7 +100,7 @@ const ProductSummary = () => {
           ))}
         </div>
 
-        <div className="w-full xl:max-w-[500px] h-full border ">
+        <div className="w-full xl:max-w-[500px] sm:h-full h-[20rem] border cursor-pointer">
           <img
             src={
               itemData.productVariants?.[selectedVariantIndex] ||
@@ -85,8 +108,26 @@ const ProductSummary = () => {
             }
             className="w-full h-full object-cover"
             alt={itemData?.itemName}
+            onClick={handleOpenPreview}
           />
         </div>
+
+        {previewImage && (
+          <div
+            className={`fixed inset-0 z-50 flex items-center justify-center bg-black/80 transition-opacity duration-300 ${
+              isVisible ? "opacity-100" : "opacity-0"
+            }`}
+            onClick={handleClosePreview}
+          >
+            <img
+              src={previewImage.src}
+              alt="Full preview"
+              className={`2xl:max-w-[50%] xl:max-w-[80%] sm:max-w-[90%] max-w-[85%] max-h-full rounded-xl shadow-lg transition-all duration-300 transform ${
+                isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
+              }`}
+            />
+          </div>
+        )}
       </div>
 
       {/* Product Details */}

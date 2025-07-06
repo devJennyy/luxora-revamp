@@ -68,7 +68,7 @@ const LuxoraPicks = () => {
       <section
         className={`transition-opacity duration-500 ${
           isLoading ? "opacity-0" : "opacity-100"
-        } w-full max-w-[1280px] !mx-auto flex flex-col justify-center items-center gap-10 xl:px-10 sm:px-5 px-4 sm:!my-16 !my-8`}
+        } w-full max-w-[1280px] !mx-auto flex flex-col justify-center items-center gap-10 xl:px-10 sm:px-5 px-4 lg:!my-16 !my-5`}
       >
         <HoverEffect
           className="grid md:grid-cols-4 grid-cols-2 w-full"
@@ -81,7 +81,7 @@ const LuxoraPicks = () => {
 
         {visibleCount < products.length && (
           <button
-            className="sm:px-8 px-5 sm:py-[14px] py-[10px] border border-primary bg-primary text-white hover:bg-transparent hover:text-primary active:bg-transparent active:text-primary rounded-md w-fit h-fit !mt-8 cursor-pointer transition-default"
+            className="sm:px-8 px-5 sm:py-[14px] py-[10px] border border-primary bg-primary text-white hover:bg-transparent hover:text-primary active:bg-transparent active:text-primary rounded-md w-fit h-fit cursor-pointer transition-default"
             onClick={handleLoadMore}
           >
             <p className="sm:text-sm text-[12px] font-medium">
