@@ -16,7 +16,7 @@ const ProductOverview = () => {
       <section
         className={`transition-opacity duration-500 ${
           isLoading ? "opacity-0" : "opacity-100"
-        } w-full max-w-[1280px] !mx-auto xl:px-10 sm:px-5 px-4 xl:!my-16 !my-5 flex flex-col xl:gap-20 gap-14`}
+        } w-full md:max-w-[1280px] !mx-auto xl:px-10 sm:px-5 px-4 xl:!my-16 !my-5 flex flex-col xl:gap-20 gap-14`}
       >
         <ProductSummary />
         <AdditionalInfo />
