@@ -9,7 +9,7 @@ import {
 
 const Hero = () => {
   return (
-    <a className="w-full flex flex-col sm:gap-16 gap-8">
+    <section className="w-full flex flex-col sm:gap-16 gap-8">
       <div className="w-full flex lg:flex-row flex-col-reverse gap-2">
         <div className="flex lg:flex-col flex-row gap-2 xl:max-w-[390px] lg:max-w-[340px] w-full max-w-full">
           <Swiper
@@ -116,7 +116,7 @@ const Hero = () => {
           ))}
         </div>
       </div>
-    </a>
+    </section>
   );
 };
 
