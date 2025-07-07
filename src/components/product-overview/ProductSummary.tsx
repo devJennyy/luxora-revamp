@@ -78,7 +78,7 @@ const ProductSummary = () => {
   };
 
   return (
-    <section className="w-full flex md:flex-row flex-col justify-between xl:gap-0 sm:gap-10 gap-8">
+    <section className="w-full flex md:flex-row flex-col justify-between sm:gap-10 gap-8">
       {/* Media */}
       <div className="flex xl:flex-row flex-col-reverse sm:h-[35rem] sm:gap-4 gap-2 overflow-hidden w-full">
         <div className="flex xl:flex-col flex-row justify-between h-full gap-1">
