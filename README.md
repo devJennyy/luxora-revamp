@@ -5,6 +5,12 @@
     </a>
   <br />
 
+   <br />
+    <a href="https://kawaii-verse-revamp-by-devjenny.vercel.app" target="_blank">
+      <img src="https://github.com/devJennyy/luxora-revamp/blob/main/public/images/mobile-ui-preview.png" alt="Project Banner">
+    </a>
+  <br />
+
   <div>
     <img src="https://img.shields.io/badge/-React_JS-black?style=for-the-badge&logoColor=white&logo=react&color=0882C4" alt="react.js" />
     <img src="https://img.shields.io/badge/-TypeScript-black?style=for-the-badge&logoColor=white&logo=typescript&color=1C2B43" alt="typescript" />
