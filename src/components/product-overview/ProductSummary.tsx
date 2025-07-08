@@ -78,10 +78,10 @@ const ProductSummary = () => {
   };
 
   return (
-    <section className="w-full flex md:flex-row flex-col justify-between sm:gap-10 gap-8">
+    <section className="w-full flex md:flex-row flex-col justify-between lg:gap-10 gap-8">
       {/* Media */}
-      <div className="flex xl:flex-row flex-col-reverse sm:h-[35rem] sm:gap-4 gap-2 overflow-hidden w-full">
-        <div className="flex xl:flex-col flex-row justify-between h-full gap-1">
+      <div className="flex xl:flex-row flex-col-reverse sm:gap-4 gap-2 overflow-hidden w-full">
+        <div className="flex xl:flex-col flex-row justify-between gap-2">
           {itemData.productVariants?.map((selection: any, index: number) => (
             <button
               key={index}
@@ -90,28 +90,39 @@ const ProductSummary = () => {
                 selectedVariantIndex === index
                   ? "border-2 border-primary"
                   : "border-2 border-white hover:border-primary active:border-primary focus:border-primary transition-default"
-              } p-1 w-full h-full border-2 border-primary cursor-pointer`}
+              } w-full h-fit border-2 border-primary cursor-pointer`}
             >
-              <img
-                src={selection}
-                alt={itemData.primaryProduct}
-                className="w-full xl:w-20 sm:h-[97px] h-[60px] object-cover border"
-              />
+              <div className="xl:w-20 sm:h-[103px] h-[60px] sm:p-1 p-[3px] border">
+                <img
+                  src={selection}
+                  alt={itemData.primaryProduct}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </button>
           ))}
         </div>
 
-        <div className="w-full xl:max-w-[500px] sm:h-full h-[20rem] border cursor-pointer">
-          <img
-            src={
-              itemData.productVariants?.[selectedVariantIndex] ||
-              itemData?.thumbnail
-            }
-            className="w-full h-full object-cover"
-            alt={itemData?.itemName}
-            onClick={handleOpenPreview}
-          />
-        </div>
+        <div className="w-full xl:max-w-[500px] xl:h-[35rem] sm:h-[28rem] h-[20rem] border cursor-pointer sm:p-2 p-1 relative">
+  <img
+    src={
+      itemData.productVariants?.[selectedVariantIndex] ||
+      itemData?.thumbnail
+    }
+    className="w-full h-full object-cover"
+    alt={itemData?.itemName}
+    onClick={handleOpenPreview}
+  />
+
+  {itemData.sold && (
+    <div className="flex flex-col justify-center items-center text-center sm:w-20 sm:h-20 w-16 h-16 p-1 rounded-full bg-[#B1B1B1]/50 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <p className="text-white lg:text-[15px] text-sm font-medium leading-4 p-2">
+        Sold out
+      </p>
+    </div>
+  )}
+</div>
+
 
         {previewImage && (
           <div
@@ -162,7 +173,7 @@ const ProductSummary = () => {
         </div>
 
         {/* Countdown */}
-        <div className="flex justify-between items-center sm:text-sm text-[12px] font-medium  bg-[#FDEFEE] w-full h-10 outline outline-[#F8CCCC] rounded-sm text-[#FF706B] px-4">
+        <div className="flex justify-between items-center lg:text-sm md:text-[12px] sm:text-sm text-[12px] font-medium  bg-[#FDEFEE] w-full h-10 outline outline-[#F8CCCC] rounded-sm text-[#FF706B] px-4">
           <p>Hurry up! Sale ends in:</p>
           <Countdown
             className="tracking-[7px] font-bold"
@@ -182,98 +193,102 @@ const ProductSummary = () => {
 
         {/* Size */}
         <div className="flex flex-col gap-3">
-  <p className="sm:text-base text-sm font-medium">Size</p>
-  <div className="flex sm:gap-3 gap-2 sm:text-sm text-[12px]">
-    {itemData?.sizes?.map((size: any, index: number) => (
-      <button
-        key={index}
-        type="button"
-        onClick={() => setSelectedSizeIndex(index)}
-        className={`w-fit px-4 sm:h-11 h-10 flex justify-center items-center rounded-md
-          ${selectedSizeIndex === index
-            ? "bg-primary text-white"
-            : "border hover:bg-primary hover:text-white transition-all"
+          <p className="sm:text-base text-sm font-medium">Size</p>
+          <div className="flex sm:gap-3 gap-2 sm:text-sm text-[12px]">
+            {itemData?.sizes?.map((size: any, index: number) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => setSelectedSizeIndex(index)}
+                className={`w-fit px-4 sm:h-11 h-10 flex justify-center items-center rounded-md
+          ${
+            selectedSizeIndex === index
+              ? "bg-primary text-white"
+              : "border hover:bg-primary hover:text-white transition-all"
           }`}
-      >
-        {size}
-      </button>
-    ))}
-  </div>
-</div>
+              >
+                {size}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Color */}
         <div className="flex flex-col gap-3">
-  <p className="sm:text-base text-sm font-medium">Color</p>
-  <div className="flex justify-start items-center gap-3">
-    {itemData?.colors?.map((item: any, index: number) => (
-      <button
-        key={index}
-        type="button"
-        onClick={() => setSelectedColorIndex(index)}
-        className={`${item} ${
-          selectedColorIndex === index
-            ? "w-5 h-5 outline outline-black outline-offset-2"
-            : "w-5 h-5 outline outline-gray-lightGray"
-        } rounded-full cursor-pointer transition-all`}
-      ></button>
-    ))}
-  </div>
-</div>
+          <p className="sm:text-base text-sm font-medium">Color</p>
+          <div className="flex justify-start items-center gap-3">
+            {itemData?.colors?.map((item: any, index: number) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => setSelectedColorIndex(index)}
+                className={`${item} ${
+                  selectedColorIndex === index
+                    ? "w-5 h-5 outline outline-black outline-offset-2"
+                    : "w-5 h-5 outline outline-gray-lightGray"
+                } rounded-full cursor-pointer transition-all`}
+              ></button>
+            ))}
+          </div>
+        </div>
 
         {/* Quantity */}
         <div className="flex flex-col gap-3">
-  <p className="sm:text-base text-sm font-medium">Quantity</p>
-  <div className="flex justify-start sm:gap-4 gap-3">
-    <div className="flex">
-      <button
-        onClick={() => setCount((prevCount) => Math.max(1, prevCount - 1))}
-        className="flex justify-center items-center sm:w-12 sm:h-11 w-10 h-10 border rounded-tl-md rounded-bl-md"
-        disabled={count <= 1}
-      >
-        <LuMinus size={14} />
-      </button>
-      <p className="flex justify-center items-center border-t border-b sm:w-12 sm:h-11 w-10 h-10">
-        {count}
-      </p>
-      <button
-        onClick={() => setCount((prevCount) => prevCount + 1)}
-        className="flex justify-center items-center sm:w-12 sm:h-11 w-10 h-10 border rounded-tr-md rounded-br-md"
-      >
-        <LuPlus size={14} />
-      </button>
-    </div>
+          <p className="sm:text-base text-sm font-medium">Quantity</p>
+          <div className="flex justify-start sm:gap-4 gap-3">
+            <div className="flex">
+              <button
+                onClick={() =>
+                  setCount((prevCount) => Math.max(1, prevCount - 1))
+                }
+                className="flex justify-center items-center sm:w-12 sm:h-11 w-10 h-10 border rounded-tl-md rounded-bl-md"
+                disabled={count <= 1}
+              >
+                <LuMinus size={14} />
+              </button>
+              <p className="flex justify-center items-center border-t border-b sm:w-12 sm:h-11 w-10 h-10">
+                {count}
+              </p>
+              <button
+                onClick={() => setCount((prevCount) => prevCount + 1)}
+                className="flex justify-center items-center sm:w-12 sm:h-11 w-10 h-10 border rounded-tr-md rounded-br-md"
+              >
+                <LuPlus size={14} />
+              </button>
+            </div>
 
-    {/* Add to cart */}
-    <Link
-      to={"/signup"}
-      className="flex justify-center items-center w-full sm:h-11 h-10 bg-primary text-white rounded-md active:bg-transparent active:text-primary border border-primary transition-all"
-    >
-      <p className="lg:text-base text-sm">Add to cart</p>
-    </Link>
+            {/* Add to cart */}
+            <Link
+              to={"/signup"}
+              className="flex justify-center items-center w-full sm:h-11 h-10 bg-primary text-white rounded-md active:bg-transparent active:text-primary border border-primary transition-all"
+            >
+              <p className="lg:text-base text-sm">Add to cart</p>
+            </Link>
 
-    {/* Favourite */}
-    <Link to={"/signup"} className="hidden sm:block relative">
-      <HoverCard openDelay={20} closeDelay={10}>
-        <HoverCardTrigger asChild>
-          <Button
-            variant="link"
-            className="flex justify-center items-center min-w-11 h-11 border rounded-md"
-          >
-            <IoHeartOutline size={22} />
-          </Button>
-        </HoverCardTrigger>
+            {/* Favourite */}
+            <Link to={"/signup"} className="hidden sm:block relative">
+              <HoverCard openDelay={20} closeDelay={10}>
+                <HoverCardTrigger asChild>
+                  <Button
+                    variant="link"
+                    className="flex justify-center items-center min-w-11 h-11 border rounded-md"
+                  >
+                    <IoHeartOutline size={22} />
+                  </Button>
+                </HoverCardTrigger>
 
-        <HoverCardContent
-          side="top"
-          className="flex justify-center items-center gap-2 w-fit px-4 h-fit py-3 !mb-2 text-sm right-[-1.2rem] bottom-1 absolute"
-        >
-          <IoMdHeart size={19} className="text-red-600" />
-          <p>Favorite</p>
-          <p>(8.2k)</p>
-        </HoverCardContent>
-      </HoverCard>
-    </Link>
-  </div>
-</div>
+                <HoverCardContent
+                  side="top"
+                  className="flex justify-center items-center gap-2 w-fit px-4 h-fit py-3 !mb-2 text-sm right-[-1.2rem] bottom-1 absolute"
+                >
+                  <IoMdHeart size={19} className="text-red-600" />
+                  <p>Favorite</p>
+                  <p>(8.2k)</p>
+                </HoverCardContent>
+              </HoverCard>
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );

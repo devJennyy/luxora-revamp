@@ -172,7 +172,7 @@ const Header = () => {
             />
           </a>
 
-          <div className="w-full max-w-[1280px] !mx-auto xl:px-10 sm:px-5">
+          <div className="w-full max-w-[1280px] !mx-auto xl:px-10 sm:px-5 px-4">
             <div className="border-b w-full flex justify-between items-center sm:h-24 h-[70px] ">
               <Link
                 to={"/homepage"}
