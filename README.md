@@ -1,12 +1,12 @@
 <div align="center">
   <br />
-    <a href="https://kawaii-verse-revamp-by-devjenny.vercel.app" target="_blank">
+    <a href="https://luxora-by-devjenny.vercel.app/" target="_blank">
       <img src="https://github.com/devJennyy/luxora-revamp/blob/main/public/images/homepage-ui.png" alt="Project Banner">
     </a>
   <br />
 
    <br />
-    <a href="https://kawaii-verse-revamp-by-devjenny.vercel.app" target="_blank">
+    <a href="https://luxora-by-devjenny.vercel.app/" target="_blank">
       <img src="https://github.com/devJennyy/luxora-revamp/blob/main/public/images/mobile-ui-preview.png" alt="Project Banner">
     </a>
   <br />
